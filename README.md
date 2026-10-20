@@ -294,6 +294,22 @@ untouched. Picking a different model inside a client does **not** switch the
 server; use `llm.sh switch` or the wrapper. `copilot-local --offline` sets
 `COPILOT_OFFLINE=true` (GitHub features such as code search/delegate are unavailable).
 
+### Remote use (from another machine)
+
+The server only listens on `127.0.0.1`. To use it from another machine, enable Remote Login
+(SSH) on the server Mac, then clone this repo on the client and set:
+
+```bash
+export LOCAL_LLM_REMOTE=user@server-host     # needs key-based or agent SSH login
+export LOCAL_LLM_REMOTE_DIR=local-llm        # repo path on the server, relative to ~ (default)
+bin/opencode-local coder                     # any wrapper works
+```
+
+The wrappers then switch the model on the server over SSH, read its API key and `CTX`, and
+open an SSH tunnel to `127.0.0.1:8080` if nothing is listening there yet. The client needs
+no models, llama.cpp, or `run/api-key`, only the agent tools (`./setup.sh --models none`).
+Close the tunnel with `pkill -f "ssh -f -N .*8080:127.0.0.1:8080"`, or `kill` its pid.
+
 ### Coding agents
 
 All of these talk directly to `llama-server`; no proxy is needed. Everything except
