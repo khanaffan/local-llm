@@ -1,0 +1,3 @@
+cold: prompt_tokens=99587 total=134.5s prefill=763 tok/s decode=43.6 tok/s recall=3/3 answer='Vault code: 7391-QX, project codename: BLUE HERON, server port: 48213'
+warm: prompt_tokens=99587 total=4.0s prefill=78 tok/s decode=44.1 tok/s recall=3/3 answer='Vault code: 7391-QX, project codename: BLUE HERON, server port: 48213'
+server RSS 54.7 GiB | swap: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: opencode-local [fast|medium|smart|long] [opencode args...]
+# Usage: opencode-local [fast|medium|coder|smart|long] [opencode args...]
 # OpenCode against the local model, via the project-local opencode.json (global settings untouched).
 set -euo pipefail
 P="${1:-fast}"; shift || true

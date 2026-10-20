@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: llm.sh {start|stop|status|switch} [fast|medium|smart|long]
+# Usage: llm.sh {start|stop|status|switch} [fast|medium|coder|smart|long]
 # One resident model at a time, bound to 127.0.0.1:8080.
 set -euo pipefail
 
@@ -30,7 +30,7 @@ health() {
 
 load_profile() {
   local p="$1"
-  [[ "$p" =~ ^(fast|medium|smart|long)$ ]] || die "unknown profile '$p' (fast|medium|smart|long)"
+  [[ "$p" =~ ^(fast|medium|coder|smart|long)$ ]] || die "unknown profile '$p' (fast|medium|coder|smart|long)"
   # shellcheck disable=SC1090
   . "$ROOT/profiles/$p.env"
   # optional per-machine overrides (git-ignored), e.g. CTX=65536 on smaller Macs
@@ -59,8 +59,9 @@ cmd_start() {
   load_profile "$p"
   [ -f "$KEYFILE" ] || die "missing $KEYFILE"
   mkdir -p "$ROOT/run"
+  local tmpl=(); [ -z "${CHAT_TEMPLATE:-}" ] || tmpl=(--chat-template-file "$ROOT/$CHAT_TEMPLATE")
   # shellcheck disable=SC2086
-  nohup llama-server \
+  nohup llama-server ${tmpl[@]+"${tmpl[@]}"} \
     -m "$ROOT/$MODEL_FILE" --alias "$ALIAS" \
     --host $HOST --port $PORT --api-key-file "$KEYFILE" \
     -c "$CTX" -np 1 -ngl all --flash-attn on --jinja \
@@ -104,5 +105,5 @@ case "${1:-}" in
   stop) cmd_stop ;;
   status) cmd_status ;;
   switch) cmd_switch "${2:-}" ;;
-  *) die "usage: $0 {start|stop|status|switch} [fast|medium|smart|long]" ;;
+  *) die "usage: $0 {start|stop|status|switch} [fast|medium|coder|smart|long]" ;;
 esac

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """HumanEval pass@1 against the running llama-server profile.
 
-Usage: run_humaneval.py <fast|medium|smart> [limit]
+Usage: run_humaneval.py <fast|medium|coder|smart|long> [limit]
 Resumable: problems already in results/<profile>.jsonl are skipped.
 Generated code runs under macOS sandbox-exec (no network, writes only to a temp dir).
 """
@@ -10,7 +10,7 @@ import gzip, json, os, re, subprocess, sys, tempfile, time, urllib.request, urll
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PROFILE = sys.argv[1]
 LIMIT = int(sys.argv[2]) if len(sys.argv) > 2 else None
-ALIAS = {"fast": "local-fast", "medium": "local-medium", "smart": "local-smart"}[PROFILE]
+ALIAS = "local-" + PROFILE
 KEY = open(os.path.join(ROOT, "..", "run", "api-key")).read().strip()
 OUT = os.path.join(ROOT, "results", f"{PROFILE}.jsonl")
 os.makedirs(os.path.dirname(OUT), exist_ok=True)

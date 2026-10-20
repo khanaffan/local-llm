@@ -3,7 +3,7 @@
 #
 #   ./setup.sh                      interactive: checks your Mac, recommends models, asks
 #   ./setup.sh --recommended        download every model that fits your RAM, no questions
-#   ./setup.sh --models fast,medium download exactly these (fast|medium|smart|long|all|none)
+#   ./setup.sh --models fast,medium download exactly these (fast|medium|coder|smart|long|all|none)
 #   options: --no-agents  skip installing coding agents into tools/
 #            --no-test    skip the final test chat
 #
@@ -76,8 +76,8 @@ fi
 say "Models"
 RECOMMENDED=""
 printf '  %-7s %-9s %-8s %s\n' PROFILE DOWNLOAD MIN_RAM DESCRIPTION
-for p in fast medium smart long; do
-  bytes=$(python3 -c "import json;m=json.load(open('manifest.json'));print(m[m['$p'].get('same_file_as','$p')]['bytes'])")
+for p in fast medium coder smart long; do
+  bytes=$(python3 -c "import json;m=json.load(open('manifest.json'));print(sum(f['bytes'] for f in m[m['$p'].get('same_file_as','$p')]['files']))")
   min=$(prof $p MIN_RAM_GB)
   dl="$(gb $bytes)"; [ $p = long ] && dl="(=medium)"
   fit="ok"; [ "$RAM_GB" -ge "$min" ] || fit="too big for ${RAM_GB} GB"
@@ -97,10 +97,10 @@ case "$MODE" in
       MODELS="$RECOMMENDED"
     fi ;;
 esac
-[ "$MODELS" = all ] && MODELS="fast medium smart"
+[ "$MODELS" = all ] && MODELS="fast medium coder smart"
 [ "$MODELS" = none ] && MODELS=""
 for p in $MODELS; do
-  case $p in fast|medium|smart|long) ;; *) die "unknown model '$p' (fast|medium|smart|long|all|none)";; esac
+  case $p in fast|medium|coder|smart|long) ;; *) die "unknown model '$p' (fast|medium|coder|smart|long|all|none)";; esac
   [ "$RAM_GB" -ge "$(prof $p MIN_RAM_GB)" ] || warn "$p is recommended for >= $(prof $p MIN_RAM_GB) GB RAM; it may swap or fail to load"
 done
 
@@ -114,7 +114,7 @@ fi
 
 # ---------------------------------------------------------------- 7. test
 FIRST=""
-for p in fast medium smart long; do
+for p in fast medium coder smart long; do
   f=$(prof $p MODEL_FILE); [ -f "$f" ] && [ -f "models/.$(basename "$f").sha256" ] && { FIRST=$p; break; }
 done
 if [ "$TEST" = 1 ] && [ -n "$FIRST" ]; then

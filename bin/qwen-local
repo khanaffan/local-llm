@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: qwen-local [fast|medium|smart|long] [qwen args...]
+# Usage: qwen-local [fast|medium|coder|smart|long] [qwen args...]
 # Qwen Code (OpenAI Chat Completions) against the local model. Context limits come from a
 # generated per-profile settings file; ~/.qwen is not modified.
 set -euo pipefail

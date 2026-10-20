@@ -10,7 +10,7 @@ web UI disabled.
 Requirements:
 - Apple Silicon Mac (M1 or newer). 24 GB RAM is the minimum; 64 GB or more is recommended.
 - [Homebrew](https://brew.sh).
-- Disk space for the models you choose: 12–100 GB.
+- Disk space for the models you choose: 12–230 GB.
 
 ```bash
 git clone https://github.com/khanaffan/local-llm.git && cd local-llm
@@ -30,7 +30,7 @@ Non-interactive options:
 
 ```bash
 ./setup.sh --recommended             # every model that fits this Mac's RAM
-./setup.sh --models fast,medium      # exactly these (fast|medium|smart|long|all|none)
+./setup.sh --models fast,coder       # exactly these (fast|medium|coder|smart|long|all|none)
 ./setup.sh --no-agents --no-test     # server + models only
 ./download.sh smart                  # add a model later (set HF_TOKEN if rate-limited)
 ```
@@ -38,15 +38,21 @@ Non-interactive options:
 Then start any agent; it loads the matching model automatically:
 
 ```bash
-bin/claude-local medium      # or: copilot-local, codex-local, opencode-local, qwen-local, aider-local
+bin/claude-local coder       # or: copilot-local, codex-local, opencode-local, qwen-local, aider-local
 ```
 
 | Profile | Model | Download | Recommended RAM |
 |---|---|---|---|
 | fast | gpt-oss-20b | 12 GB | ≥ 24 GB |
-| medium | Qwen3-Coder-30B-A3B Q6_K | 25 GB | ≥ 48 GB |
-| long | same as medium, 256k context | (uses medium) | ≥ 64 GB |
+| medium | Qwen3-Coder-Next (80B-A3B) Q6_K | 66 GB | ≥ 96 GB |
+| coder | Qwen3.8-Flash-Next (125B-A6B) UD-IQ3_XXS | 82 GB | ≥ 128 GB |
 | smart | gpt-oss-120b | 63 GB | ≥ 96 GB |
+| long | same as medium, 256k context | (uses medium) | ≥ 96 GB |
+
+**Which one for coding?** `coder` is the strongest coding model here; `medium` is the
+fastest coding specialist; `smart` is the strongest general reasoner. On a 48–64 GB Mac,
+use `fast` (the previous 25 GB medium, Qwen3-Coder-30B-A3B, is in git history before the
+`coder` tier was added).
 
 **Smaller Mac?** Create `profiles/<profile>.local.env` (git-ignored) to override settings
 on that machine, e.g. `CTX=65536` to cut KV-cache memory. Both the server and the agent
@@ -63,11 +69,15 @@ The measurements below come from an Apple M5 Max with 128 GB RAM.
 | Profile | Alias | Model | Weights | Context | Gen (tok/s) | Prefill 30k (tok/s) | Server RSS @100k |
 |---|---|---|---|---|---|---|---|
 | fast | `local-fast` | gpt-oss-20b MXFP4 | 11.3 GiB | 131072 | ~150 | ~2230 | 14.8 GiB |
-| medium | `local-medium` | Qwen3-Coder-30B-A3B Q6_K | 23.4 GiB | 131072 | ~128 | ~1050 | 35.8 GiB |
+| medium | `local-medium` | Qwen3-Coder-Next Q6_K | 61.1 GiB | 131072 | ~82 | ~940 avg over 100k | 64.7 GiB |
+| coder | `local-coder` | Qwen3.8-Flash-Next UD-IQ3_XXS | 76.3 GiB | 131072 | ~51 (thinking) | ~760 avg over 100k | 54.7 GiB* |
 | smart | `local-smart` | gpt-oss-120b MXFP4 | 59.0 GiB | 131072 | ~109 | ~1300 | 67.6 GiB |
-| long | `local-long` | Qwen3-Coder-30B-A3B Q6_K (same file as medium) | 23.4 GiB | 262144 | ~128 empty / 11.5 @239k | ~180 avg over 239k | 48.1 GiB @239k |
+| long | `local-long` | Qwen3-Coder-Next Q6_K (same files as medium) | 61.1 GiB | 262144 | ~82 empty / 30 @239k | ~510 avg over 239k | 43.4 GiB* @239k |
 
-Cold ~100k-token prompt: fast 95 s, medium 265 s, smart 138 s. Repeating the same
+\* Weights are memory-mapped, so RSS can count part of them as file cache; plan on
+weights + KV. No swap or memory pressure was seen for any profile.
+
+Cold ~100k-token prompt: fast 95 s, medium 106 s, coder 135 s, smart 138 s. Repeating the same
 prefix is served from the prompt cache (≈0.1–1.3 s). Treat these as measurements for
 this setup, not guarantees. Raw `llama-bench` output is in `bench/`.
 
@@ -80,8 +90,10 @@ fixtures (`fixtures/`), with tests left untouched. No swap use or memory pressur
 | Tier | Model | Pass@1 | 95% CI | Median s/problem | Avg tokens/answer | End-to-end tok/s | Total |
 |---|---|---|---|---|---|---|---|
 | fast | gpt-oss-20b | 97.0% (159/164) | 93–99% | 3.6 s | 645 | 140 | 12.6 min |
-| medium | Qwen3-Coder-30B-A3B | 92.7% (152/164) | 88–96% | 1.5 s | 213 | 116 | 5.0 min |
+| medium | Qwen3-Coder-Next | 93.9% (154/164) | 89–97% | 2.4 s | 206 | 76 | 7.4 min |
+| coder | Qwen3.8-Flash-Next | **98.8% (162/164)** | 96–100% | 10.7 s | 641 | 45 | 39.0 min |
 | smart | gpt-oss-120b | 98.2% (161/164) | 95–99% | 4.2 s | 479 | 97 | 13.5 min |
+| *(old medium)* | Qwen3-Coder-30B-A3B | 92.7% (152/164) | 88–96% | 1.5 s | 213 | 116 | 5.0 min |
 
 **How it was run:** one sample per problem at each model's card sampling settings, 8192 max
 tokens, single slot, one tier at a time. No run was truncated or hit a request error. The
@@ -90,12 +102,14 @@ harness errors. Generated code ran under `sandbox-exec` (no network, writes conf
 temp dir, 15 s timeout); the harness was checked with wrong-answer, network, file-write and
 infinite-loop controls.
 
-**How to read it:** fast vs smart (97.0% vs 98.2%) is within the noise of a single sample, so
-HumanEval cannot separate them. Medium is the quickest but about 4–5 points lower. HumanEval
+**How to read it:** fast, coder and smart (97.0–98.8%) are within the noise of a single
+sample, so HumanEval cannot separate them. Medium is the quickest but about 4–5 points lower
+(it answers without reasoning). Coder at its template-default `xhigh` reasoning effort ran
+past the 8192-token cap on 4 of its first 47 problems, so the profile uses `medium` effort. HumanEval
 is easy and likely saturated, so this shows basic coding correctness, not a ranking on hard
 or long-horizon tasks. The agent fixtures above cover multi-step tool use.
 
-**Re-run:** `eval/run_all.sh [fast|medium|smart|long ...]`, then `python3 eval/score.py` (writes
+**Re-run:** `eval/run_all.sh [fast|medium|coder|smart|long ...]`, then `python3 eval/score.py` (writes
 `eval/SCORECARD.md`). Runs are resumable and must not be run with `sudo`.
 
 ## Larger context windows
@@ -103,15 +117,23 @@ or long-horizon tasks. The agent fixtures above cover multi-step tool use.
 | Model | Native (`n_ctx_train`) | Configured | Beyond native? |
 |---|---|---|---|
 | gpt-oss-20b / 120b | 131072 | 131072 (max) | No: already at the trained limit |
-| Qwen3-Coder-30B-A3B | 262144 | medium 131072, **long 262144** | YaRN up to ~1M (not enabled) |
+| Qwen3-Coder-Next | 262144 | medium 131072, **long 262144** | YaRN up to ~1M (not enabled) |
+| Qwen3.8-Flash-Next | 262144 | coder 131072 | Could raise to 262144; YaRN to ~1M (not enabled) |
 
 **`long` profile test** (`eval/long_context.py local-long 48000`, log in
-`eval/long_medium_256k.log`):
+`eval/long_qwen3-coder-next_256k.log`):
 - 238,772-token prompt with 3 facts hidden at 10%, 50% and 90% depth: **3/3 recalled**, cold and warm.
-- Cold prefill took **1312 s (~22 min)**. Average prefill speed drops as the context grows: ~1050 tok/s over the first 30k tokens, ~180 tok/s over the full 239k.
-- A cached repeat of the same prompt took 1.7 s.
-- Decode was **11.5 tok/s** at that depth, versus ~128 tok/s when the context is short.
-- Server RSS was 48.1 GiB, with no swap.
+- Cold prefill took **470 s (~8 min)**, ~510 tok/s on average.
+- A cached repeat of the same prompt took 1.2 s.
+- Decode was **30 tok/s** at that depth, versus ~82 tok/s when the context is short.
+- No swap.
+- The previous 30B-A3B medium took 1312 s with 11.5 tok/s decode on the same prompt
+  (`eval/long_qwen3-coder-30b_256k.log`). Qwen3-Coder-Next and Qwen3.8 use hybrid linear
+  attention (Gated DeltaNet), so long prompts are much cheaper.
+
+At ~100k tokens (3/3 recall each): medium prefill 943 tok/s, decode 48 tok/s; coder
+prefill 763 tok/s, decode 44 tok/s (`eval/long_qwen3-coder-next_100k.log`,
+`eval/long_qwen3.8-flash-next_100k.log`).
 
 Use `long` only when a session really needs more than 128k tokens, e.g. reading a big
 codebase or log in one go. In agent sessions the context grows a turn at a time and
@@ -120,9 +142,8 @@ as the context fills. For everyday work, the 128k tiers with client compaction a
 much faster.
 
 **Not enabled: YaRN past 256k** (`--rope-scaling yarn --rope-scale 2|4 --yarn-orig-ctx 262144`).
-- KV memory for Qwen3-Coder is ~96 KiB per token at f16.
-- 512k at f16 ≈ 48 GiB KV, about 72 GiB total; this fits.
-- 1M ≈ 96 GiB KV at f16 (does not fit) or ≈ 48 GiB at q8_0 (fits).
+- Hybrid attention keeps KV small (only some layers keep a full KV cache), but medium's 61 GiB
+  of weights leave ~45 GiB for KV and buffers; measure before enabling 512k+.
 - The cold prefill would take hours, and static YaRN can hurt quality on short prompts (Qwen model card).
 
 ## Bottleneck: memory vs compute
@@ -130,36 +151,55 @@ much faster.
 On this M5 Max (128 GB, 40-core GPU, 18-core CPU) **memory is plentiful and compute is
 the limit**.
 
-- **Memory has headroom.** The largest profile (smart, 128k context) peaks at ~68 GiB of
-  the ~107 GiB Metal can use. The 256k `long` test peaked at 48 GiB. No swap or memory
+- **Memory has headroom.** The largest profile (coder: 76 GiB of weights plus a small hybrid
+  KV cache) fits within the ~107 GiB Metal can use. No swap or memory
   pressure was seen. A q8_0 KV cache saved memory nobody needed and made generation
   slower, so f16 is used.
-- **Compute is the limit.** Cold prefill of a 239k-token prompt took ~22 min. Generation
-  runs ~110–150 tok/s at short context, limited by the GPU and memory bandwidth, and falls
-  to 11.5 tok/s at 239k tokens. The CPU cores are mostly idle, because inference runs on
+- **Compute is the limit.** Cold prefill of a 239k-token prompt took ~8 min (22 min with
+  the older 30B model). Generation runs ~50–150 tok/s at short context, limited by the GPU
+  and memory bandwidth, and falls to 30 tok/s at 239k tokens. The CPU cores are mostly idle, because inference runs on
   the GPU.
 
-Possible uses for the spare memory (not yet measured):
-- Higher-precision or larger weights, e.g. Qwen3-Coder Q8_0 or GLM-4.5-Air.
+Uses for the spare memory:
+- Larger sparse (MoE) weights: done, see the `medium` and `coder` tiers and
+  [Coding model research](#coding-model-research-sparse-moe-oct-2026).
 - Speculative decoding (e.g. gpt-oss-20b drafting for gpt-oss-120b) for faster generation.
 - Parallel slots (`-np 2`) or two models resident at once.
 
 More RAM would not make this setup faster. Faster prefill and generation need more GPU
 compute and memory bandwidth.
 
+## Coding model research (sparse MoE, Oct 2026)
+
+Mixture-of-experts models store many parameters but read only the *active* ones per
+token, so decode speed tracks active size × bits ÷ ~614 GB/s while quality tracks total
+size. Candidates that fit 128 GB (Hugging Face model cards and unsloth GGUF sizes):
+
+| Model | Total / active | Fitting quant (size) | Status |
+|---|---|---|---|
+| **Qwen3.8-Flash-Next** | 125B / 6B (+51B n-gram embeddings) | UD-IQ3_XXS (82 GB) | **`coder` tier**. Card: SWE-bench Pro 62.5, SWE-bench Multilingual 81.0, LiveCodeBench v6 91.9. Licence: qwen-community-1.0 |
+| **Qwen3-Coder-Next** | 80B / 3B | Q6_K (66 GB) | **`medium` tier**. Coding-only, non-thinking, Apache-2.0 |
+| Qwen3.5-122B-A10B | 122B / 10B | Q5_K_M (91 GB) | General model, slower; not added |
+| MiniMax-M2.7 | 229B / ~10B | UD-IQ3_XXS (80 GB) | Needs ~3-bit squeeze; not added |
+| GLM-5.3-Flash | 320B / 18B | ≥ 93 GB even at 1-bit | Does not fit usefully |
+| MiniMax-M3, DeepSeek-V4.1-Flash, Ling-3.1-flash | 428B–763B | – | Too large for 128 GB |
+
+The card scores are the vendors' own. Locally, both new tiers passed every agent smoke test
+and their long-context recall tests. HumanEval is too easy to rank them.
+
 ## Usage
 
 ```bash
-./llm.sh switch fast|medium|smart|long   # stop current model, start another (waits for readiness)
+./llm.sh switch fast|medium|coder|smart|long   # stop current model, start another (waits for readiness)
 ./llm.sh status | stop
 
 # every wrapper: bin/<agent>-local [profile, default fast] [agent's own args]
-bin/copilot-local  [--offline] [fast|medium|smart|long] [copilot args]
-bin/opencode-local [fast|medium|smart|long] [opencode args]
-bin/claude-local   [fast|medium|smart|long] [claude args]
-bin/codex-local    [fast|medium|smart|long] [codex args]
-bin/qwen-local     [fast|medium|smart|long] [qwen args]
-bin/aider-local    [fast|medium|smart|long] [aider args]
+bin/copilot-local  [--offline] [fast|medium|coder|smart|long] [copilot args]
+bin/opencode-local [fast|medium|coder|smart|long] [opencode args]
+bin/claude-local   [fast|medium|coder|smart|long] [claude args]
+bin/codex-local    [fast|medium|coder|smart|long] [codex args]
+bin/qwen-local     [fast|medium|coder|smart|long] [qwen args]
+bin/aider-local    [fast|medium|coder|smart|long] [aider args]
 ```
 
 Each wrapper switches the server to that profile if needed and then starts the agent.
@@ -190,7 +230,14 @@ Copilot CLI is installed locally in `tools/`.
   resident model. Your real Claude login and settings in `~/.claude` are not used.
   Nonessential traffic and auto-update are off. It logs a harmless
   `unrecognized_model` note.
-- **OpenCode with Qwen profiles (medium/long):** Qwen3-Coder tended to keep calling tools
+- **Copilot with Qwen3-Coder-Next (medium/long):** the model calls Claude-Code-style tool
+  names (e.g. `Read`), which Copilot resolves to `read_bash`/`read_agent`, and it loops.
+  For these profiles the wrapper offers only `bash view edit create glob grep`
+  (`--available-tools`); override with `LOCAL_LLM_COPILOT_TOOLS="..."`.
+- **Claude Code with coder:** the Qwen3.8 chat template rejects system messages after the
+  first turn, which Claude Code sends. `templates/qwen3.8-flash-next.jinja` is the GGUF
+  template with only that check changed to render them (`CHAT_TEMPLATE` in the profile).
+- **OpenCode with Qwen3-Coder profiles (medium/long):** Qwen3-Coder tended to keep calling tools
   (todo updates, re-running tests) after the task was done, so the turn never ended.
   For these profiles the wrapper disables the todo tools and caps agent steps at 50.
   Raise the cap with `LOCAL_LLM_OPENCODE_STEPS=N`.
@@ -204,11 +251,12 @@ and that the test file is unchanged.
 | Profile | copilot | opencode | claude | codex | qwen | aider |
 |---|---|---|---|---|---|---|
 | fast | PASS | PASS (flaky, see above) | PASS | PASS | PASS | PASS |
-| medium | PASS | PASS (after step cap) | PASS | PASS | PASS | PASS |
+| medium | PASS (core tools only) | PASS | PASS | PASS | PASS | PASS |
+| coder | PASS | PASS | PASS (patched template) | PASS | PASS | PASS |
 | smart | PASS | PASS | PASS | PASS | PASS | PASS |
 | long | not run | PASS | PASS | PASS | not run | not run |
 
-Most runs took 6–60 s.
+Most runs took 10–60 s; coder is slower (25–140 s) because it reasons first.
 
 Quick connectivity check:
 ```bash
@@ -218,7 +266,7 @@ curl -H "Authorization: Bearer $(cat run/api-key)" http://127.0.0.1:8080/v1/mode
 ## Configuration and tuning decisions
 
 - Flags: `-ngl all --flash-attn on --jinja -np 1`, `--no-webui`; sampling per model card
-  (`profiles/*.env`). gpt-oss reasoning effort is `medium`.
+  (`profiles/*.env`). gpt-oss and Qwen3.8 reasoning effort is `medium`.
 - KV cache: **f16**. `q8_0` KV was slower on both tested models (gpt-oss-20b tg 150→145,
   Qwen3-Coder tg 128→110) and memory is not constrained, so it is not used.
 - Memory: no `mlock`/`--no-mmap`/`iogpu.wired_limit_mb` changes were needed.
@@ -234,7 +282,7 @@ curl -H "Authorization: Bearer $(cat run/api-key)" http://127.0.0.1:8080/v1/mode
   and verifies the full SHA-256. `setup.sh` – bootstrap for a fresh clone.
 - `profiles/*.env`, `llm.sh` – server lifecycle (one process, owned-PID stop, port-conflict checks).
 - `opencode.json`, `bin/*-local` (+ shared `bin/_common.sh`) – agent wrappers. `run/api-key` – local key (mode 600; do not commit).
-- `models/` – weights (~100 GB, do not commit). `tools/` – locally installed agents (npm: OpenCode, Claude Code, Codex, Qwen Code; uv: Aider in `tools/uv`, `tools/bin`); only `tools/package*.json` is committed.
+- `models/` – weights (up to ~225 GB for all tiers, do not commit). Multi-file (sharded) GGUFs are listed per shard in `manifest.json`; the profile points at shard 1. `templates/` – patched chat templates. `tools/` – locally installed agents (npm: OpenCode, Claude Code, Codex, Qwen Code; uv: Aider in `tools/uv`, `tools/bin`); only `tools/package*.json` is committed.
 - `bench/`, `fixtures/` – benchmark output and qualification fixtures.
 - `eval/` – HumanEval harness (`run_humaneval.py`, `run_all.sh`, `score.py`), the pinned
   dataset (`HumanEval.jsonl.gz`, MIT, from openai/human-eval), per-problem `results/*.jsonl`, and `SCORECARD.md`. `long_context.py` is the

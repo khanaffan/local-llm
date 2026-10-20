@@ -4,7 +4,7 @@
 [ "$(id -u)" -ne 0 ] || { echo "error: do not run with sudo; it creates root-owned files in your home directory" >&2; exit 1; }
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 P="${1:-fast}"
-case "$P" in fast|medium|smart|long) ;; *) echo "unknown profile: $P (fast|medium|smart|long)" >&2; exit 1 ;; esac
+case "$P" in fast|medium|coder|smart|long) ;; *) echo "unknown profile: $P (fast|medium|coder|smart|long)" >&2; exit 1 ;; esac
 
 # switch unless this exact profile is already running (also restarts a crashed server)
 "$ROOT/llm.sh" status 2>/dev/null | grep -qx "running: $P pid=[0-9]*" || "$ROOT/llm.sh" switch "$P"

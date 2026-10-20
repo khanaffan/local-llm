@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: aider-local [fast|medium|smart|long] [aider args...]
+# Usage: aider-local [fast|medium|coder|smart|long] [aider args...]
 # Aider (OpenAI Chat Completions via LiteLLM) against the local model.
 # Context/output limits are given through a generated model-metadata file.
 set -euo pipefail

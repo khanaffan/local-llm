@@ -16,7 +16,7 @@ eval/HumanEval.jsonl
 eval/tmp/
 eval/run.log
 *.log
-!eval/long_medium_256k.log
+!eval/long_*.log
 
 # Python / OS / editor noise
 __pycache__/
