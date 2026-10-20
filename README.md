@@ -125,6 +125,28 @@ much faster.
 - 1M ≈ 96 GiB KV at f16 (does not fit) or ≈ 48 GiB at q8_0 (fits).
 - The cold prefill would take hours, and static YaRN can hurt quality on short prompts (Qwen model card).
 
+## Bottleneck: memory vs compute
+
+On this M5 Max (128 GB, 40-core GPU, 18-core CPU) **memory is plentiful and compute is
+the limit**.
+
+- **Memory has headroom.** The largest profile (smart, 128k context) peaks at ~68 GiB of
+  the ~107 GiB Metal can use. The 256k `long` test peaked at 48 GiB. No swap or memory
+  pressure was seen. A q8_0 KV cache saved memory nobody needed and made generation
+  slower, so f16 is used.
+- **Compute is the limit.** Cold prefill of a 239k-token prompt took ~22 min. Generation
+  runs ~110–150 tok/s at short context, limited by the GPU and memory bandwidth, and falls
+  to 11.5 tok/s at 239k tokens. The CPU cores are mostly idle, because inference runs on
+  the GPU.
+
+Possible uses for the spare memory (not yet measured):
+- Higher-precision or larger weights, e.g. Qwen3-Coder Q8_0 or GLM-4.5-Air.
+- Speculative decoding (e.g. gpt-oss-20b drafting for gpt-oss-120b) for faster generation.
+- Parallel slots (`-np 2`) or two models resident at once.
+
+More RAM would not make this setup faster. Faster prefill and generation need more GPU
+compute and memory bandwidth.
+
 ## Usage
 
 ```bash
