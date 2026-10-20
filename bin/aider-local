@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Usage: aider-local [fast|medium|smart|long] [aider args...]
+# Aider (OpenAI Chat Completions via LiteLLM) against the local model.
+# Context/output limits are given through a generated model-metadata file.
+set -euo pipefail
+P="${1:-fast}"; shift || true
+. "$(dirname "$0")/_common.sh" "$P"
+
+M="$ROOT/run/aider-metadata-$P.json"
+cat >"$M" <<JSON
+{"openai/$ALIAS": {"max_input_tokens": $MAX_PROMPT, "max_output_tokens": $MAX_OUT,
+  "max_tokens": $MAX_OUT, "input_cost_per_token": 0, "output_cost_per_token": 0,
+  "litellm_provider": "openai", "mode": "chat", "supports_function_calling": true}}
+JSON
+export OPENAI_API_BASE="$LOCAL_LLM_V1" OPENAI_API_KEY="$LOCAL_LLM_API_KEY"
+exec "$ROOT/tools/bin/aider" --model "openai/$ALIAS" --model-metadata-file "$M" \
+  --no-check-update --analytics-disable "$@"

@@ -1,0 +1,29 @@
+# Model weights (~94 GB) – fetch with ./download.sh <profile>
+models/
+*.gguf
+
+# Runtime state: API key, PID/profile files, server log, generated agent settings,
+# Claude Code config dir. Never commit run/api-key.
+run/
+
+# Locally installed agents (recreate with ./setup.sh); keep the npm manifest/lock
+tools/*
+!tools/package.json
+!tools/package-lock.json
+
+# Eval scratch / logs (keep the long-context evidence referenced in README)
+eval/HumanEval.jsonl
+eval/tmp/
+eval/run.log
+*.log
+!eval/long_medium_256k.log
+
+# Python / OS / editor noise
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.idea/
+.aider*
+.env
+profiles/*.local.env

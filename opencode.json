@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "local-llm/local-fast",
+  "small_model": "local-llm/local-fast",
+  "enabled_providers": [
+    "local-llm"
+  ],
+  "provider": {
+    "local-llm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local llama.cpp",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1",
+        "apiKey": "{env:LOCAL_LLM_API_KEY}"
+      },
+      "models": {
+        "local-fast": {
+          "name": "gpt-oss-20b (fast)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          }
+        },
+        "local-medium": {
+          "name": "Qwen3-Coder-30B-A3B (medium)",
+          "tool_call": true,
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          }
+        },
+        "local-smart": {
+          "name": "gpt-oss-120b (smart)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          }
+        },
+        "local-long": {
+          "name": "Qwen3-Coder-30B-A3B 256k (long)",
+          "tool_call": true,
+          "limit": {
+            "context": 262144,
+            "output": 8192
+          }
+        }
+      }
+    }
+  }
+}

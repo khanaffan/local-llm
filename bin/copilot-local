@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Usage: copilot-local [--offline] [fast|medium|smart|long] [copilot args...]
+# GitHub Copilot CLI in BYOK mode (OpenAI Chat Completions) against the local model.
+# Settings are exported only for this process; nothing global is changed.
+set -euo pipefail
+OFFLINE=0
+if [ "${1:-}" = "--offline" ]; then OFFLINE=1; shift; fi
+P="${1:-fast}"; shift || true
+. "$(dirname "$0")/_common.sh" "$P"
+
+export COPILOT_PROVIDER_TYPE=openai
+export COPILOT_PROVIDER_BASE_URL="$LOCAL_LLM_V1"
+export COPILOT_PROVIDER_API_KEY="$LOCAL_LLM_API_KEY"
+export COPILOT_MODEL="$ALIAS"
+export COPILOT_PROVIDER_MAX_OUTPUT_TOKENS=$MAX_OUT
+export COPILOT_PROVIDER_MAX_PROMPT_TOKENS=$MAX_PROMPT
+[ "$OFFLINE" = 1 ] && export COPILOT_OFFLINE=true
+exec copilot "$@"

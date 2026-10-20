@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Usage: claude-local [fast|medium|smart|long] [claude args...]
+# Claude Code against llama-server's native Anthropic Messages API (/v1/messages).
+# Uses a project-local config dir (run/claude-home) so your real Claude login/settings are untouched.
+set -euo pipefail
+P="${1:-fast}"; shift || true
+. "$(dirname "$0")/_common.sh" "$P"
+
+export CLAUDE_CONFIG_DIR="$ROOT/run/claude-home"
+mkdir -p "$CLAUDE_CONFIG_DIR"
+unset ANTHROPIC_API_KEY
+export ANTHROPIC_BASE_URL="$LOCAL_LLM_HOST"
+export ANTHROPIC_AUTH_TOKEN="$LOCAL_LLM_API_KEY"
+# every model slot (main, haiku/background, subagents) -> the one resident model
+export ANTHROPIC_MODEL="$ALIAS" ANTHROPIC_SMALL_FAST_MODEL="$ALIAS" CLAUDE_CODE_SUBAGENT_MODEL="$ALIAS"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="$ALIAS" ANTHROPIC_DEFAULT_SONNET_MODEL="$ALIAS" ANTHROPIC_DEFAULT_HAIKU_MODEL="$ALIAS"
+export CLAUDE_CODE_MAX_CONTEXT_TOKENS=$CTX CLAUDE_CODE_AUTO_COMPACT_WINDOW=$MAX_PROMPT
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS=$MAX_OUT CLAUDE_CODE_DISABLE_1M_CONTEXT=1
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 DISABLE_AUTOUPDATER=1
+exec "$ROOT/tools/node_modules/.bin/claude" "$@"

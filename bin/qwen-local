@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Usage: qwen-local [fast|medium|smart|long] [qwen args...]
+# Qwen Code (OpenAI Chat Completions) against the local model. Context limits come from a
+# generated per-profile settings file; ~/.qwen is not modified.
+set -euo pipefail
+P="${1:-fast}"; shift || true
+. "$(dirname "$0")/_common.sh" "$P"
+
+S="$ROOT/run/qwen-settings-$P.json"
+cat >"$S" <<JSON
+{"model": {"name": "$ALIAS", "generationConfig": {"contextWindowSize": $CTX,
+  "samplingParams": {"max_tokens": $MAX_OUT}}},
+ "privacy": {"usageStatisticsEnabled": false}}
+JSON
+export QWEN_CODE_SYSTEM_SETTINGS_PATH="$S"
+export OPENAI_BASE_URL="$LOCAL_LLM_V1" OPENAI_API_KEY="$LOCAL_LLM_API_KEY" OPENAI_MODEL="$ALIAS"
+exec "$ROOT/tools/node_modules/.bin/qwen" --auth-type openai -m "$ALIAS" "$@"
