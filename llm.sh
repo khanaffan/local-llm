@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: llm.sh {start|stop|status|switch} [fast|medium|coder|smart|long]
+# Usage: llm.sh {start|stop|status|switch} [fast|lite|medium|coder|smart|long]
 # One resident model at a time, bound to 127.0.0.1:8080.
 set -euo pipefail
 
@@ -30,7 +30,7 @@ health() {
 
 load_profile() {
   local p="$1"
-  [[ "$p" =~ ^(fast|medium|coder|smart|long)$ ]] || die "unknown profile '$p' (fast|medium|coder|smart|long)"
+  [[ "$p" =~ ^(fast|lite|medium|coder|smart|long)$ ]] || die "unknown profile '$p' (fast|lite|medium|coder|smart|long)"
   # shellcheck disable=SC1090
   . "$ROOT/profiles/$p.env"
   # optional per-machine overrides (git-ignored), e.g. CTX=65536 on smaller Macs
@@ -105,5 +105,5 @@ case "${1:-}" in
   stop) cmd_stop ;;
   status) cmd_status ;;
   switch) cmd_switch "${2:-}" ;;
-  *) die "usage: $0 {start|stop|status|switch} [fast|medium|coder|smart|long]" ;;
+  *) die "usage: $0 {start|stop|status|switch} [fast|lite|medium|coder|smart|long]" ;;
 esac

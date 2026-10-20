@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: opencode-local [fast|medium|coder|smart|long] [opencode args...]
+# Usage: opencode-local [fast|lite|medium|coder|smart|long] [opencode args...]
 # OpenCode against the local model, via the project-local opencode.json (global settings untouched).
 set -euo pipefail
 P="${1:-fast}"; shift || true
@@ -11,7 +11,7 @@ OVERRIDE="\"small_model\": \"local-llm/$ALIAS\""
 # Qwen3-Coder in OpenCode tends to keep calling tools (todowrite, re-running tests) after the
 # task is done, so the turn never ends. Drop the todo tools and cap agentic steps; at the cap
 # OpenCode forces a text-only reply. Raise LOCAL_LLM_OPENCODE_STEPS for very long tasks.
-case "$P" in medium|long)
+case "$P" in lite|medium|long)
   S="${LOCAL_LLM_OPENCODE_STEPS:-50}"
   OVERRIDE="$OVERRIDE, \"tools\": {\"todowrite\": false, \"todoread\": false}"
   OVERRIDE="$OVERRIDE, \"agent\": {\"build\": {\"steps\": $S}, \"plan\": {\"steps\": $S}}" ;;

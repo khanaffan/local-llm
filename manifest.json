@@ -11,6 +11,18 @@
       }
     ]
   },
+  "lite": {
+    "repo": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+    "revision": "b17cb02dd882d5b6ab62fc777ad2995f19668350",
+    "license": "apache-2.0",
+    "files": [
+      {
+        "file": "Qwen3-Coder-30B-A3B-Instruct-Q6_K.gguf",
+        "bytes": 25092535456,
+        "sha256": "100b5121d09553fb1af3b873b21fb3ec3da5c306fc5cb09bd338c48e21b10875"
+      }
+    ]
+  },
   "medium": {
     "repo": "unsloth/Qwen3-Coder-Next-GGUF",
     "revision": "ce09c67b53bc8739eef83fe67b2f5d293c270632",

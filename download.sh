@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-# Usage: ./download.sh <fast|medium|coder|smart|long> [...]     (long uses the medium weights)
+# Usage: ./download.sh <fast|lite|medium|coder|smart|long> [...]     (long uses the medium weights)
 # Downloads pinned weights from manifest.json into models/: resumable, retries, checks free
 # disk first, verifies the full SHA-256, and skips files that are already verified.
 # Set HF_TOKEN if Hugging Face rate-limits you.
 set -euo pipefail
 [ "$(id -u)" -ne 0 ] || { echo "error: do not run with sudo" >&2; exit 1; }
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-[ $# -gt 0 ] || { echo "usage: $0 <fast|medium|coder|smart|long> [...]" >&2; exit 1; }
+[ $# -gt 0 ] || { echo "usage: $0 <fast|lite|medium|coder|smart|long> [...]" >&2; exit 1; }
 mkdir -p "$ROOT/models"
 
 gb() { awk -v b="$1" 'BEGIN{printf "%.1f GB", b/1e9}'; }
 size() { stat -f %z "$1" 2>/dev/null || echo 0; }
 
-PROFILES="fast|medium|coder|smart|long"
+PROFILES="fast|lite|medium|coder|smart|long"
 for P in "$@"; do
   INFO=$(python3 - "$ROOT/manifest.json" "$P" "$PROFILES" <<'PY'
 import json, sys

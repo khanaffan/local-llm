@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: copilot-local [--offline] [fast|medium|coder|smart|long] [copilot args...]
+# Usage: copilot-local [--offline] [fast|lite|medium|coder|smart|long] [copilot args...]
 # GitHub Copilot CLI in BYOK mode (OpenAI Chat Completions) against the local model.
 # Settings are exported only for this process; nothing global is changed.
 set -euo pipefail

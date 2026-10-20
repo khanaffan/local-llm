@@ -3,7 +3,7 @@
 import json, math, os, statistics as st
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-MODELS = {"fast": "gpt-oss-20b", "medium-30b": "Qwen3-Coder-30B-A3B Q6_K (previous medium)",
+MODELS = {"fast": "gpt-oss-20b", "lite": "Qwen3-Coder-30B-A3B Q6_K",
           "medium": "Qwen3-Coder-Next Q6_K", "coder": "Qwen3.8-Flash-Next UD-IQ3_XXS", "smart": "gpt-oss-120b"}
 
 

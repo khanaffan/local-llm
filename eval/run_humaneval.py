@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """HumanEval pass@1 against the running llama-server profile.
 
-Usage: run_humaneval.py <fast|medium|coder|smart|long> [limit]
+Usage: run_humaneval.py <fast|lite|medium|coder|smart|long> [limit]
 Resumable: problems already in results/<profile>.jsonl are skipped.
 Generated code runs under macOS sandbox-exec (no network, writes only to a temp dir).
 """
