@@ -5,7 +5,7 @@
 [ "$(id -u)" -ne 0 ] || { echo "error: do not run with sudo; it creates root-owned files in your home directory" >&2; exit 1; }
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 P="${1:-fast}"
-case "$P" in fast|lite|medium|coder|smart|long) ;; *) echo "unknown profile: $P (fast|lite|medium|coder|smart|long)" >&2; exit 1 ;; esac
+case "$P" in fast|lite|medium|coder|smart|long|max) ;; *) echo "unknown profile: $P (fast|lite|medium|coder|smart|long|max)" >&2; exit 1 ;; esac
 
 LOCAL_LLM_HOST=http://127.0.0.1:8080
 

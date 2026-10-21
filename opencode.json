@@ -57,6 +57,15 @@
             "output": 8192
           }
         },
+        "local-max": {
+          "name": "Qwen3-235B-A22B-Thinking-2507 (experimental)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 16384,
+            "output": 8192
+          }
+        },
         "local-long": {
           "name": "Qwen3-Coder-Next 256k (long)",
           "tool_call": true,

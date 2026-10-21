@@ -50,6 +50,20 @@ bin/claude-local coder       # or: copilot-local, codex-local, opencode-local, q
 | coder | Qwen3.8-Flash-Next (125B-A6B) UD-IQ3_XXS | 82 GB | ≥ 128 GB (qwen-community-1.0 license, not Apache) |
 | smart | gpt-oss-120b | 63 GB | ≥ 96 GB |
 | long | same as medium, 256k context | (uses medium) | ≥ 96 GB |
+| max (experimental, opt-in) | Qwen3-235B-A22B-Thinking-2507 UD-Q3_K_XL | 104 GB | ≥ 128 GB; raised GPU limit required on 128 GB |
+
+**Trying `max` on 128 GB:** it uses a conservative 16k context and f16 KV cache;
+loading, speed, and memory pressure have not yet been measured. Close memory-heavy
+apps first. A higher GPU limit allows Metal allocations but does not add RAM;
+macOS can still swap or run out of memory. This profile is excluded from
+`setup.sh --recommended` and `--models all`; select it explicitly.
+
+```bash
+sudo sysctl iogpu.wired_limit_mb=114688   # 112 GiB; temporary until reboot
+./download.sh max                       # resumable, verifies all three shards
+./llm.sh switch max                     # replaces the current resident model
+# Or: bin/claude-local max (other bin/*-local wrappers also accept max)
+```
 
 **Which one for coding?** `coder` is the strongest coding model here; `medium` is the
 fastest coding specialist; `smart` is the strongest general reasoner. On a 48–64 GB Mac,

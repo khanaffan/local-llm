@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: claude-local [fast|lite|medium|coder|smart|long] [claude args...]
+# Usage: claude-local [fast|lite|medium|coder|smart|long|max] [claude args...]
 # Claude Code against llama-server's native Anthropic Messages API (/v1/messages).
 # Uses a project-local config dir (run/claude-home) so your real Claude login/settings are untouched.
 set -euo pipefail

@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-# Usage: ./download.sh <fast|lite|medium|coder|smart|long> [...]     (long uses the medium weights)
+# Usage: ./download.sh <fast|lite|medium|coder|smart|long|max> [...]     (long uses the medium weights)
 # Downloads pinned weights from manifest.json into models/: resumable, retries, checks free
 # disk first, verifies the full SHA-256, and skips files that are already verified.
 # Set HF_TOKEN if Hugging Face rate-limits you.
 set -euo pipefail
 [ "$(id -u)" -ne 0 ] || { echo "error: do not run with sudo" >&2; exit 1; }
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-[ $# -gt 0 ] || { echo "usage: $0 <fast|lite|medium|coder|smart|long> [...]" >&2; exit 1; }
+[ $# -gt 0 ] || { echo "usage: $0 <fast|lite|medium|coder|smart|long|max> [...]" >&2; exit 1; }
 mkdir -p "$ROOT/models"
 
 gb() { awk -v b="$1" 'BEGIN{printf "%.1f GB", b/1e9}'; }
 size() { stat -f %z "$1" 2>/dev/null || echo 0; }
 
-PROFILES="fast|lite|medium|coder|smart|long"
+PROFILES="fast|lite|medium|coder|smart|long|max"
 for P in "$@"; do
   INFO=$(python3 - "$ROOT/manifest.json" "$P" "$PROFILES" <<'PY'
 import json, sys
@@ -44,8 +44,18 @@ PY
       echo "$P: downloading $NAME ($(gb $BYTES), $(gb $HAVE) already present) from huggingface.co/$REPO"
       PROGRESS=(-sS); [ -t 2 ] && PROGRESS=(--progress-bar)
       AUTH=(); [ -n "${HF_TOKEN:-}" ] && AUTH=(-H "Authorization: Bearer $HF_TOKEN")
-      curl -L --fail --retry 10 --retry-delay 5 --retry-all-errors -C - "${PROGRESS[@]}" ${AUTH[@]+"${AUTH[@]}"} \
-        -o "$OUT" "https://huggingface.co/$REPO/resolve/$REV/$FILE" </dev/null
+      # Fresh curl processes resume from the latest size; internal retries can roll back progress.
+      for ATTEMPT in $(seq 1 11); do
+        if curl -L --fail -C - "${PROGRESS[@]}" ${AUTH[@]+"${AUTH[@]}"} \
+          -o "$OUT" "https://huggingface.co/$REPO/resolve/$REV/$FILE" </dev/null; then
+          break
+        else
+          STATUS=$?
+          [ "$ATTEMPT" -lt 11 ] || { echo "error: $P download failed after $ATTEMPT attempts; re-run to resume" >&2; exit "$STATUS"; }
+          echo "$P: download attempt $ATTEMPT failed (curl $STATUS); resuming from $(gb "$(size "$OUT")") in 5 seconds" >&2
+          sleep 5
+        fi
+      done
     fi
     echo "$P: verifying SHA-256 of $NAME (about a minute per 50 GB)..."
     GOT=$(shasum -a 256 "$OUT" | cut -d' ' -f1)

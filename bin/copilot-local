@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: copilot-local [--offline] [fast|lite|medium|coder|smart|long] [copilot args...]
+# Usage: copilot-local [--offline] [fast|lite|medium|coder|smart|long|max] [copilot args...]
 # GitHub Copilot CLI in BYOK mode (OpenAI Chat Completions) against the local model.
 # Settings are exported only for this process; nothing global is changed.
 set -euo pipefail
@@ -8,6 +8,19 @@ if [ "${1:-}" = "--offline" ]; then OFFLINE=1; shift; fi
 P="${1:-fast}"; shift || true
 . "$(dirname "$0")/_common.sh" "$P"
 
+# Files left in ~/.copilot by an earlier `sudo copilot` (or any root process) make Copilot
+# exit 1 within seconds with no clear message. Detect that and print the one-line repair.
+CP_HOME="${COPILOT_HOME:-$HOME/.copilot}"
+if [ -d "$CP_HOME" ]; then
+  BAD="$(find "$CP_HOME" ! -user "$(id -un)" -print -quit 2>/dev/null || true)"
+  if [ -n "$BAD" ]; then
+    echo "error: $CP_HOME contains files you do not own (e.g. $BAD)," >&2
+    echo "       usually left by running copilot with sudo. Copilot cannot start until this is fixed:" >&2
+    echo "       sudo chown -R \"$(id -un)\":staff \"$CP_HOME\"" >&2
+    exit 1
+  fi
+fi
+
 export COPILOT_PROVIDER_TYPE=openai
 export COPILOT_PROVIDER_BASE_URL="$LOCAL_LLM_V1"
 export COPILOT_PROVIDER_API_KEY="$LOCAL_LLM_API_KEY"
@@ -15,8 +28,8 @@ export COPILOT_MODEL="$ALIAS"
 export COPILOT_PROVIDER_MAX_OUTPUT_TOKENS=$MAX_OUT
 export COPILOT_PROVIDER_MAX_PROMPT_TOKENS=$MAX_PROMPT
 [ "$OFFLINE" = 1 ] && export COPILOT_OFFLINE=true
-# Qwen3-Coder-Next emits Claude-Code-style names ("Read") that Copilot resolves to read_bash /
-# read_agent and then loops. Offer it only the core coding tools (override: LOCAL_LLM_COPILOT_TOOLS).
+# With the full tool set, Qwen3-Coder-Next keeps calling read_bash / read_agent with file names
+# and loops. Offer it only the core coding tools (override: LOCAL_LLM_COPILOT_TOOLS).
 TOOLS=()
 case "$P" in medium|long) TOOLS=(--available-tools ${LOCAL_LLM_COPILOT_TOOLS:-bash view edit create glob grep}) ;; esac
 exec copilot ${TOOLS[@]+"${TOOLS[@]}"} "$@"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: codex-local [fast|lite|medium|coder|smart|long] [codex args...]
+# Usage: codex-local [fast|lite|medium|coder|smart|long|max] [codex args...]
 # OpenAI Codex CLI against llama-server's Responses API (/v1/responses).
 # Provider is passed with -c overrides only; ~/.codex/config.toml is not modified.
 set -euo pipefail

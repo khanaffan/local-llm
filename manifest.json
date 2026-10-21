@@ -81,5 +81,27 @@
   },
   "long": {
     "same_file_as": "medium"
+  },
+  "max": {
+    "repo": "unsloth/Qwen3-235B-A22B-Thinking-2507-GGUF",
+    "revision": "3eba50b4e3ea2c0df1c43e8c8f5ce2db22645e81",
+    "license": "apache-2.0",
+    "files": [
+      {
+        "file": "UD-Q3_K_XL/Qwen3-235B-A22B-Thinking-2507-UD-Q3_K_XL-00001-of-00003.gguf",
+        "bytes": 49966873280,
+        "sha256": "0006b292b96715b138669b95a0cb6c8c572b14df32e4ac775b6397d2b30f445c"
+      },
+      {
+        "file": "UD-Q3_K_XL/Qwen3-235B-A22B-Thinking-2507-UD-Q3_K_XL-00002-of-00003.gguf",
+        "bytes": 49935284896,
+        "sha256": "e9226239a9f5644f241062ec9304a9ac158b1e372374c74b136bd40eea110507"
+      },
+      {
+        "file": "UD-Q3_K_XL/Qwen3-235B-A22B-Thinking-2507-UD-Q3_K_XL-00003-of-00003.gguf",
+        "bytes": 3925710240,
+        "sha256": "c85e55b4c64e6263ff83f86401233cb192df20fa3f0bcf38d4e0f1007c90976a"
+      }
+    ]
   }
 }
