@@ -1,0 +1,279 @@
+{
+  "cand-qwen36-35b": {
+    "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+    "model": "Qwen3.6-35B-A3B",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 0.6 --top-p 0.95 --top-k 20 --min-p 0",
+    "revision": "a483e9e6cbd595906af30beda3187c2663a1118c",
+    "files": [
+      {
+        "file": "Qwen3.6-35B-A3B-UD-Q6_K.gguf",
+        "bytes": 29308320736,
+        "sha256": "4fe53b148b46f9b88830e2a3055c5b15c3a4d1e3ddc9a1384a108d8b9d59f043"
+      }
+    ],
+    "bytes": 29308320736,
+    "license": "apache-2.0",
+    "source_card": "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/blob/a483e9e6cbd595906af30beda3187c2663a1118c/README.md"
+  },
+  "cand-qwen38-27b": {
+    "repo": "unsloth/Qwen3.8-27B-GGUF",
+    "model": "Qwen3.8-27B",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0 --reasoning-effort medium",
+    "revision": "4ca720788d1e01f1bff70c033e0d0028fd02e502",
+    "files": [
+      {
+        "file": "Qwen3.8-27B-UD-Q6_K.gguf",
+        "bytes": 21983677344,
+        "sha256": "c9c206812fbe4ac7b76a729e25928b63f2ae89d37f69da7a71c20aec763cd436"
+      }
+    ],
+    "bytes": 21983677344,
+    "license": "apache-2.0",
+    "source_card": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/blob/4ca720788d1e01f1bff70c033e0d0028fd02e502/README.md"
+  },
+  "cand-gemma4-26b": {
+    "repo": "unsloth/gemma-4-26B-A4B-it-GGUF",
+    "model": "Gemma-4-26B-A4B-it",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 64 --min-p 0",
+    "revision": "c099eb48e663fd284577b04978a94ffccb261841",
+    "files": [
+      {
+        "file": "gemma-4-26B-A4B-it-UD-Q6_K.gguf",
+        "bytes": 23172478688,
+        "sha256": "76bf3eee49cca5b076b34a4b575ecd505dabc470512b46f1207b4f9da08385f0"
+      }
+    ],
+    "bytes": 23172478688,
+    "license": "apache-2.0",
+    "source_card": "https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF/blob/c099eb48e663fd284577b04978a94ffccb261841/README.md"
+  },
+  "cand-glm47-flash": {
+    "repo": "unsloth/GLM-4.7-Flash-GGUF",
+    "model": "GLM-4.7-Flash",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 0.7 --top-p 1.0 --top-k 0 --min-p 0",
+    "revision": "0d32489ecb9db6d2a4fc93bd27ef01519f95474d",
+    "files": [
+      {
+        "file": "GLM-4.7-Flash-Q6_K.gguf",
+        "bytes": 24693098848,
+        "sha256": "f5bdc431802d7a3dab3be5a50ad0848a5569fd45c98c5e2ad83412c87cd887dc"
+      }
+    ],
+    "bytes": 24693098848,
+    "license": "mit",
+    "source_card": "https://huggingface.co/unsloth/GLM-4.7-Flash-GGUF/blob/0d32489ecb9db6d2a4fc93bd27ef01519f95474d/README.md"
+  },
+  "cand-nemo35-light": {
+    "repo": "ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+    "model": "Nemotron-3.5-Lightning-30B-A3B",
+    "quant": "Q8_0",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 1.0 --top-k 0 --min-p 0",
+    "revision": "8cd082170ed313484be1cf44f256a5caa2cfdad3",
+    "files": [
+      {
+        "file": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-Q8_0.gguf",
+        "bytes": 33585495616,
+        "sha256": "d4cc4c9fffaa356db8b49cfaba9233609cfb29b4dd89d827665210dc1cc8dbbb"
+      }
+    ],
+    "bytes": 33585495616,
+    "license": "other",
+    "source_card": "https://huggingface.co/ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF/blob/8cd082170ed313484be1cf44f256a5caa2cfdad3/README.md"
+  },
+  "cand-devstral-s2": {
+    "repo": "unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF",
+    "model": "Devstral-Small-2-24B-Instruct-2512",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": false,
+    "sampling": "--temp 0.15 --top-p 1.0 --top-k 0 --min-p 0",
+    "revision": "6e458b8add42681bfd023de5eab93637694aaf82",
+    "files": [
+      {
+        "file": "Devstral-Small-2-24B-Instruct-2512-Q6_K.gguf",
+        "bytes": 19346476192,
+        "sha256": "b04b3e19730d7a1e19530f40b947b69c028b090cb7c58c1515cf1fc2ece5f821"
+      }
+    ],
+    "bytes": 19346476192,
+    "license": "other",
+    "source_card": "https://huggingface.co/unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF/blob/6e458b8add42681bfd023de5eab93637694aaf82/README.md"
+  },
+  "cand-ds-coder-lite": {
+    "repo": "bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF",
+    "model": "DeepSeek-Coder-V2-Lite-Instruct",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": false,
+    "sampling": "--temp 0.3 --top-p 0.95 --top-k 0 --min-p 0",
+    "revision": "8f248fa2072348f77a8bc37754e470de1f61866e",
+    "files": [
+      {
+        "file": "DeepSeek-Coder-V2-Lite-Instruct-Q6_K.gguf",
+        "bytes": 14066972416,
+        "sha256": "1ff79f43ad5728d3179bf8fa7ee2993652f4306d6aeca9c35055f4f5b7b864cd"
+      }
+    ],
+    "bytes": 14066972416,
+    "license": "other",
+    "source_card": "https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF/blob/8f248fa2072348f77a8bc37754e470de1f61866e/README.md"
+  },
+  "cand-ds-r1-32b": {
+    "repo": "unsloth/DeepSeek-R1-Distill-Qwen-32B-GGUF",
+    "model": "DeepSeek-R1-Distill-Qwen-32B",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 0.6 --top-p 0.95 --top-k 0 --min-p 0",
+    "revision": "1938d05cc893a60f37be1dc16e7465038f4fca63",
+    "files": [
+      {
+        "file": "DeepSeek-R1-Distill-Qwen-32B-Q6_K.gguf",
+        "bytes": 26886154144,
+        "sha256": "1da08f75e205e607ed6a504dfcb1006548d1182553cb0e5d755c69d5179fa57c"
+      }
+    ],
+    "bytes": 26886154144,
+    "license": "apache-2.0",
+    "source_card": "https://huggingface.co/unsloth/DeepSeek-R1-Distill-Qwen-32B-GGUF/blob/1938d05cc893a60f37be1dc16e7465038f4fca63/README.md"
+  },
+  "cand-nemo35-super": {
+    "repo": "ggml-org/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF",
+    "model": "Nemotron-3.5-Super-VL-120B-A12B",
+    "quant": "Q4_0",
+    "wave": 2,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 1.0 --top-k 0 --min-p 0",
+    "revision": "2950ece63f57a4a20d5bd0e5861e11f612f1a8da",
+    "files": [
+      {
+        "file": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-Q4_0.gguf",
+        "bytes": 71933775808,
+        "sha256": "73aabf5646b250c32b0690f3996a0c30f3b50f3d531dcdb03fbafe311139dc83"
+      }
+    ],
+    "bytes": 71933775808,
+    "license": "other",
+    "source_card": "https://huggingface.co/ggml-org/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF/blob/2950ece63f57a4a20d5bd0e5861e11f612f1a8da/README.md"
+  },
+  "cand-devstral-2": {
+    "repo": "unsloth/Devstral-2-123B-Instruct-2512-GGUF",
+    "model": "Devstral-2-123B-Instruct-2512",
+    "quant": "Q4_K_M",
+    "wave": 2,
+    "thinking": false,
+    "sampling": "--temp 0.15 --top-p 1.0 --top-k 0 --min-p 0",
+    "revision": "1f2bfbe35f7f9071d9b318374bf5eeffefab4459",
+    "files": [
+      {
+        "file": "Q4_K_M/Devstral-2-123B-Instruct-2512-Q4_K_M-00001-of-00002.gguf",
+        "bytes": 49936343776,
+        "sha256": "e1d870265f1dced7ca17c198a8701c0fb2c32c5a664f71183c25bbe7dcb95ef2"
+      },
+      {
+        "file": "Q4_K_M/Devstral-2-123B-Instruct-2512-Q4_K_M-00002-of-00002.gguf",
+        "bytes": 24961318624,
+        "sha256": "18137111738c71ff3cda27a6012ec448c51ff0cb0cf7b20ec8d01b9801281114"
+      }
+    ],
+    "bytes": 74897662400,
+    "license": "other",
+    "source_card": "https://huggingface.co/unsloth/Devstral-2-123B-Instruct-2512-GGUF/blob/1f2bfbe35f7f9071d9b318374bf5eeffefab4459/README.md"
+  },
+  "cand-qwen38fn-gsq": {
+    "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+    "model": "Qwen3.8-Flash-Next (GSQ-RCO)",
+    "quant": "IQ3_S",
+    "wave": 2,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0 --reasoning-effort medium",
+    "template": "templates/qwen3.8-flash-next.jinja",
+    "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "files": [
+      {
+        "file": "IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+        "bytes": 54817524224,
+        "sha256": "4c1eb2ceb4915e1192f4f386021897bde56a97f40a0bb78bb86465e0f7d2aca3"
+      },
+      {
+        "file": "IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+        "bytes": 28800138432,
+        "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+      }
+    ],
+    "bytes": 83617662656,
+    "license": "apache-2.0",
+    "source_card": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/blob/ed59f92082b1e93c0e96d60a8b11aab089b52f09/README.md"
+  },
+  "cand-glm45-air": {
+    "repo": "unsloth/GLM-4.5-Air-GGUF",
+    "model": "GLM-4.5-Air",
+    "quant": "UD-Q4_K_XL",
+    "wave": 2,
+    "optional": true,
+    "thinking": true,
+    "sampling": "--temp 0.7 --top-p 1.0 --top-k 0 --min-p 0",
+    "revision": "506d64aa8c5cfe9dbbf00bc7a15739438f83204d",
+    "files": [
+      {
+        "file": "UD-Q4_K_XL/GLM-4.5-Air-UD-Q4_K_XL-00001-of-00002.gguf",
+        "bytes": 49580287296,
+        "sha256": "1acd6d4acdb4f463c9a61696cb7e830e1a34134e610b573e87a4397adcd90bd7"
+      },
+      {
+        "file": "UD-Q4_K_XL/GLM-4.5-Air-UD-Q4_K_XL-00002-of-00002.gguf",
+        "bytes": 18140784576,
+        "sha256": "8e220a3cdf4e19763cc7a5fd0a6215f1da1b3fda1306e64e88456d045c2007f8"
+      }
+    ],
+    "bytes": 67721071872,
+    "license": "mit",
+    "source_card": "https://huggingface.co/unsloth/GLM-4.5-Air-GGUF/blob/506d64aa8c5cfe9dbbf00bc7a15739438f83204d/README.md"
+  },
+  "cand-ds-v4-flash": {
+    "repo": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+    "model": "DeepSeek-V4-Flash-0731",
+    "quant": "UD-IQ2_XXS",
+    "wave": 3,
+    "optional": true,
+    "experimental": true,
+    "context": 32768,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 0 --min-p 0",
+    "revision": "fbbb5b93fb787c21338159b0af3318bb3f4d9768",
+    "files": [
+      {
+        "file": "UD-IQ2_XXS/DeepSeek-V4-Flash-0731-UD-IQ2_XXS-00001-of-00003.gguf",
+        "bytes": 5257664,
+        "sha256": "c58c9d62eac7b62e9578b52613f425e48313d7212ab8d1d76caed8ea8de26595"
+      },
+      {
+        "file": "UD-IQ2_XXS/DeepSeek-V4-Flash-0731-UD-IQ2_XXS-00002-of-00003.gguf",
+        "bytes": 49890588800,
+        "sha256": "65a113df6d4469f16db6882b6919e153c464c3c78c833f5e1b41a33803cdbd52"
+      },
+      {
+        "file": "UD-IQ2_XXS/DeepSeek-V4-Flash-0731-UD-IQ2_XXS-00003-of-00003.gguf",
+        "bytes": 40964890464,
+        "sha256": "a69102ddfaf4a84426e11fdb66716654f4260dc3a1de3ade9fd50e006b8691d3"
+      }
+    ],
+    "bytes": 90860736928,
+    "license": "mit",
+    "source_card": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/blob/fbbb5b93fb787c21338159b0af3318bb3f4d9768/README.md"
+  }
+}

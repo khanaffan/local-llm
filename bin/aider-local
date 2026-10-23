@@ -6,7 +6,7 @@ set -euo pipefail
 P="${1:-fast}"; shift || true
 . "$(dirname "$0")/_common.sh" "$P"
 
-M="$ROOT/run/aider-metadata-$P.json"
+M="$LOCAL_LLM_RUN_DIR/aider-metadata-$P.json"
 cat >"$M" <<JSON
 {"openai/$ALIAS": {"max_input_tokens": $MAX_PROMPT, "max_output_tokens": $MAX_OUT,
   "max_tokens": $MAX_OUT, "input_cost_per_token": 0, "output_cost_per_token": 0,

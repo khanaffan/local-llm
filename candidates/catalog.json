@@ -1,0 +1,111 @@
+{
+  "cand-qwen36-35b": {
+    "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+    "model": "Qwen3.6-35B-A3B",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 0.6 --top-p 0.95 --top-k 20 --min-p 0"
+  },
+  "cand-qwen38-27b": {
+    "repo": "unsloth/Qwen3.8-27B-GGUF",
+    "model": "Qwen3.8-27B",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0 --reasoning-effort medium"
+  },
+  "cand-gemma4-26b": {
+    "repo": "unsloth/gemma-4-26B-A4B-it-GGUF",
+    "model": "Gemma-4-26B-A4B-it",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 64 --min-p 0"
+  },
+  "cand-glm47-flash": {
+    "repo": "unsloth/GLM-4.7-Flash-GGUF",
+    "model": "GLM-4.7-Flash",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 0.7 --top-p 1.0 --top-k 0 --min-p 0"
+  },
+  "cand-nemo35-light": {
+    "repo": "ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+    "model": "Nemotron-3.5-Lightning-30B-A3B",
+    "quant": "Q8_0",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 1.0 --top-k 0 --min-p 0"
+  },
+  "cand-devstral-s2": {
+    "repo": "unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF",
+    "model": "Devstral-Small-2-24B-Instruct-2512",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": false,
+    "sampling": "--temp 0.15 --top-p 1.0 --top-k 0 --min-p 0"
+  },
+  "cand-ds-coder-lite": {
+    "repo": "bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF",
+    "model": "DeepSeek-Coder-V2-Lite-Instruct",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": false,
+    "sampling": "--temp 0.3 --top-p 0.95 --top-k 0 --min-p 0"
+  },
+  "cand-ds-r1-32b": {
+    "repo": "unsloth/DeepSeek-R1-Distill-Qwen-32B-GGUF",
+    "model": "DeepSeek-R1-Distill-Qwen-32B",
+    "quant": "Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 0.6 --top-p 0.95 --top-k 0 --min-p 0"
+  },
+  "cand-nemo35-super": {
+    "repo": "ggml-org/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF",
+    "model": "Nemotron-3.5-Super-VL-120B-A12B",
+    "quant": "Q4_0",
+    "wave": 2,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 1.0 --top-k 0 --min-p 0"
+  },
+  "cand-devstral-2": {
+    "repo": "unsloth/Devstral-2-123B-Instruct-2512-GGUF",
+    "model": "Devstral-2-123B-Instruct-2512",
+    "quant": "Q4_K_M",
+    "wave": 2,
+    "thinking": false,
+    "sampling": "--temp 0.15 --top-p 1.0 --top-k 0 --min-p 0"
+  },
+  "cand-qwen38fn-gsq": {
+    "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+    "model": "Qwen3.8-Flash-Next (GSQ-RCO)",
+    "quant": "IQ3_S",
+    "wave": 2,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0 --reasoning-effort medium",
+    "template": "templates/qwen3.8-flash-next.jinja"
+  },
+  "cand-glm45-air": {
+    "repo": "unsloth/GLM-4.5-Air-GGUF",
+    "model": "GLM-4.5-Air",
+    "quant": "UD-Q4_K_XL",
+    "wave": 2,
+    "optional": true,
+    "thinking": true,
+    "sampling": "--temp 0.7 --top-p 1.0 --top-k 0 --min-p 0"
+  },
+  "cand-ds-v4-flash": {
+    "repo": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+    "model": "DeepSeek-V4-Flash-0731",
+    "quant": "UD-IQ2_XXS",
+    "wave": 3,
+    "optional": true,
+    "experimental": true,
+    "context": 32768,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 0 --min-p 0"
+  }
+}

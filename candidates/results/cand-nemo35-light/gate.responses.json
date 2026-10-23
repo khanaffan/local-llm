@@ -1,0 +1,549 @@
+[
+  {
+    "chat": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY",
+            "reasoning_content": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user says \"Reply with exactly READY.\"\n2.  **Identify the Core Request:** The user wants me to output the word \"READY\" exactly, with no additional text, formatting, or variations.\n3.  **Determine the Output:** I need to produce only the word `READY`.\n4.  **Check Constraints:** \"exactly READY\" means case-sensitive? Usually, \"exactly\" implies matching the given casing. The user wrote \"READY\" in all caps. I'll output exactly `READY`.\n5.  **Formulate Response:** Just output `READY`. No reasoning, no extra text. I'll make sure there's no trailing whitespace or additional characters that aren't part of the word, though typically a newline is fine but I'll just output the word.\n\nWait, should I include a newline? The prompt says \"Reply with exactly READY.\" I'll just output `READY` without quotes or extra stuff. I'll keep it plain.\n\nOutput: READY\nDone.\u2705\n"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 236,
+        "prompt_tokens": 22,
+        "total_tokens": 258,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "id": "chatcmpl-e1gVJi2UaEDT9eU49f7q6QOCUvdCbalE",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 22,
+        "prompt_ms": 141.82,
+        "prompt_per_token_ms": 6.446363636363636,
+        "prompt_per_second": 155.12621633055988,
+        "predicted_n": 236,
+        "predicted_ms": 2276.905,
+        "predicted_per_token_ms": 9.688957446808512,
+        "predicted_per_second": 103.21027886538963
+      }
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "role": "assistant",
+            "content": null
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": "We"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " need"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " to"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " call"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " lookup"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " with"
+          }
+        }
+      ],
+      "created": 1792739292,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " code"
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " \""
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": "P"
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": "ING"
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": "\"."
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " Use"
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " the"
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": " function"
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "reasoning_content": "."
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "tool_calls": [
+              {
+                "index": 0,
+                "id": "okJmUaxzM093E7wS3IPtXaDC8iHLgNrp",
+                "type": "function",
+                "function": {
+                  "name": "lookup",
+                  "arguments": "{"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "tool_calls": [
+              {
+                "index": 0,
+                "function": {
+                  "arguments": "\"code\":\""
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "tool_calls": [
+              {
+                "index": 0,
+                "function": {
+                  "arguments": "P"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "tool_calls": [
+              {
+                "index": 0,
+                "function": {
+                  "arguments": "ING"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "tool_calls": [
+              {
+                "index": 0,
+                "function": {
+                  "arguments": "\""
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "tool_calls": [
+              {
+                "index": 0,
+                "function": {
+                  "arguments": "}"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk"
+    }
+  },
+  {
+    "stream": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "delta": {}
+        }
+      ],
+      "created": 1792739293,
+      "id": "chatcmpl-g5wwcHLJDJHDjSK7co2KKo63TenPOGA5",
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion.chunk",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 300,
+        "prompt_ms": 328.369,
+        "prompt_per_token_ms": 1.0945633333333333,
+        "prompt_per_second": 913.6063392098522,
+        "predicted_n": 41,
+        "predicted_ms": 387.091,
+        "predicted_per_token_ms": 9.677275,
+        "predicted_per_second": 103.33487474521493
+      }
+    }
+  },
+  {
+    "tool_result": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "PONG",
+            "reasoning_content": "We have the result PONG. Need to reply with its result. So just output \"PONG\"."
+          }
+        }
+      ],
+      "created": 1792739293,
+      "model": "local-cand-nemo35-light",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 25,
+        "prompt_tokens": 346,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 296
+        }
+      },
+      "id": "chatcmpl-yum9oeGjyQIns5axyRQBKl77kSv2Ql19",
+      "timings": {
+        "cache_n": 296,
+        "prompt_n": 50,
+        "prompt_ms": 100.337,
+        "prompt_per_token_ms": 2.00674,
+        "prompt_per_second": 498.32065937789645,
+        "predicted_n": 25,
+        "predicted_ms": 231.962,
+        "predicted_per_token_ms": 9.665083333333333,
+        "predicted_per_second": 103.46522275200249
+      }
+    }
+  }
+]

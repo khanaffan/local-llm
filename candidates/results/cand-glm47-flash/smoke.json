@@ -1,0 +1,66 @@
+{
+  "passed": 5,
+  "total": 6,
+  "results": [
+    {
+      "agent": "copilot",
+      "passed": true,
+      "exit_code": 0,
+      "test_exit_code": 0,
+      "test_unchanged": true,
+      "timeout": false,
+      "secs": 25.69,
+      "fixture": "bugfix"
+    },
+    {
+      "agent": "opencode",
+      "passed": true,
+      "exit_code": 0,
+      "test_exit_code": 0,
+      "test_unchanged": true,
+      "timeout": false,
+      "secs": 26.09,
+      "fixture": "bugfix"
+    },
+    {
+      "agent": "claude",
+      "passed": true,
+      "exit_code": 0,
+      "test_exit_code": 0,
+      "test_unchanged": true,
+      "timeout": false,
+      "secs": 36.78,
+      "fixture": "bugfix"
+    },
+    {
+      "agent": "codex",
+      "passed": true,
+      "exit_code": 0,
+      "test_exit_code": 0,
+      "test_unchanged": true,
+      "timeout": false,
+      "secs": 35.8,
+      "fixture": "bugfix"
+    },
+    {
+      "agent": "qwen",
+      "passed": false,
+      "exit_code": null,
+      "test_exit_code": 1,
+      "test_unchanged": true,
+      "timeout": true,
+      "secs": 600.2,
+      "fixture": "bugfix"
+    },
+    {
+      "agent": "aider",
+      "passed": true,
+      "exit_code": 0,
+      "test_exit_code": 0,
+      "test_unchanged": true,
+      "timeout": false,
+      "secs": 7.85,
+      "fixture": "bugfix"
+    }
+  ]
+}

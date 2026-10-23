@@ -1,0 +1,198 @@
+{
+  "name": "cand-qwen36-35b",
+  "status": "complete",
+  "stages": {
+    "gate": {
+      "passed": true,
+      "chat": true,
+      "streaming_tool": true,
+      "tool_result": true
+    },
+    "bench": {
+      "decode_tps": 103.207422,
+      "repetitions": 3
+    },
+    "humaneval": {
+      "total": 164,
+      "passed": 154,
+      "errors": 0,
+      "truncated": 6,
+      "median_secs": 23.91
+    },
+    "smoke": {
+      "passed": 6,
+      "total": 6,
+      "results": [
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 12.12,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 15.11,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "claude",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 9.57,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "codex",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 7.13,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "qwen",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 18.07,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "aider",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 9.62,
+          "fixture": "bugfix"
+        }
+      ]
+    },
+    "fixtures": {
+      "passed": 5,
+      "total": 6,
+      "results": [
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 13.87,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 11.88,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 56.21,
+          "fixture": "multi"
+        },
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 16.39,
+          "fixture": "multi"
+        },
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 23.49,
+          "fixture": "repair"
+        },
+        {
+          "agent": "copilot",
+          "passed": false,
+          "exit_code": null,
+          "test_exit_code": 1,
+          "test_unchanged": true,
+          "timeout": true,
+          "secs": 600.1,
+          "fixture": "repair"
+        }
+      ]
+    },
+    "long": {
+      "target_tokens": 100128,
+      "runs": [
+        {
+          "mode": "cold",
+          "prompt_tokens": 100125,
+          "secs": 88.26,
+          "recall": 3,
+          "answer": "Vault code: 7391-QX, Project codename: BLUE HERON, Server port: 48213",
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 100125,
+            "prompt_ms": 75344.611,
+            "prompt_per_token_ms": 0.7525054781523096,
+            "prompt_per_second": 1328.8939802210937,
+            "predicted_n": 770,
+            "predicted_ms": 12893.076,
+            "predicted_per_token_ms": 16.766028608582573,
+            "predicted_per_second": 59.6444168947736
+          },
+          "finish": "stop"
+        },
+        {
+          "mode": "warm",
+          "prompt_tokens": 100125,
+          "secs": 13.291,
+          "recall": 3,
+          "answer": "Vault code: 7391-QX, Project codename: BLUE HERON, Server port: 48213",
+          "timings": {
+            "cache_n": 100121,
+            "prompt_n": 4,
+            "prompt_ms": 41.972,
+            "prompt_per_token_ms": 10.493,
+            "prompt_per_second": 95.30162965786715,
+            "predicted_n": 770,
+            "predicted_ms": 19980.529,
+            "predicted_per_token_ms": 25.982482444733417,
+            "predicted_per_second": 38.48746947590827
+          },
+          "finish": "stop"
+        }
+      ]
+    }
+  }
+}

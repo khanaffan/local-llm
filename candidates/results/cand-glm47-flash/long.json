@@ -1,0 +1,43 @@
+{
+  "target_tokens": 100128,
+  "runs": [
+    {
+      "mode": "cold",
+      "prompt_tokens": 100125,
+      "secs": 621.974,
+      "recall": 3,
+      "answer": "Vault Code: 7391-QX, Project Codename: BLUE HERON, Server Port: 48213",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 100125,
+        "prompt_ms": 570626.311,
+        "prompt_per_token_ms": 5.699139186017478,
+        "prompt_per_second": 175.46509522937157,
+        "predicted_n": 436,
+        "predicted_ms": 51329.994,
+        "predicted_per_token_ms": 117.99998620689655,
+        "predicted_per_second": 8.474577261785772
+      },
+      "finish": "stop"
+    },
+    {
+      "mode": "warm",
+      "prompt_tokens": 100125,
+      "secs": 61.821,
+      "recall": 3,
+      "answer": "7391-QX, BLUE HERON, 48213",
+      "timings": {
+        "cache_n": 100124,
+        "prompt_n": 1,
+        "prompt_ms": 129.125,
+        "prompt_per_token_ms": 129.125,
+        "prompt_per_second": 7.744433688286544,
+        "predicted_n": 520,
+        "predicted_ms": 61670.708,
+        "predicted_per_token_ms": 118.82602697495183,
+        "predicted_per_second": 8.415664694493211
+      },
+      "finish": "stop"
+    }
+  ]
+}

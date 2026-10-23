@@ -79,13 +79,14 @@ printf '  %-7s %-9s %-8s %s\n' PROFILE DOWNLOAD MIN_RAM DESCRIPTION
 for p in fast lite medium coder smart long max; do
   bytes=$(python3 -c "import json;m=json.load(open('manifest.json'));print(sum(f['bytes'] for f in m[m['$p'].get('same_file_as','$p')]['files']))")
   min=$(prof $p MIN_RAM_GB)
-  dl="$(gb $bytes)"; [ $p = long ] && dl="(=medium)"
+  dl="$(gb $bytes)"
   fit="ok"; [ "$RAM_GB" -ge "$min" ] || fit="too big for ${RAM_GB} GB"
   [ "$fit" = ok ] && [ $p != long ] && [ $p != max ] && RECOMMENDED="$RECOMMENDED $p"
   printf '  %-7s %-9s %-8s %s [%s]\n' $p "$dl" "${min} GB" "$(prof $p DESC)" "$fit"
 done
 RECOMMENDED="${RECOMMENDED# }"
-# lite is the fallback coding model for Macs too small for medium; skip it when medium fits.
+# medium (Gemma 4) is the default coding model and needs less RAM than lite; lite (Nemotron
+# Lightning) is a faster alternative in the same class, so recommend only medium when it fits.
 case " $RECOMMENDED " in *" medium "*) RECOMMENDED="$(echo " $RECOMMENDED " | sed 's/ lite / /;s/^ //;s/ $//')" ;; esac
 [ -n "$RECOMMENDED" ] || warn "this Mac has less RAM than any profile needs; fast may still run with a lower CTX (profiles/fast.local.env)"
 

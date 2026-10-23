@@ -1,0 +1,6 @@
+{
+  "error": "HTTP Error 500: Internal Server Error",
+  "type": "HTTPError",
+  "response": "{\"error\":{\"code\":500,\"message\":\"Compute error.\",\"type\":\"server_error\"}}",
+  "diagnosis": "Metal GPU out-of-memory at 131072 context; preserved for comparison with the explicit 32768-context retry."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "cand-ds-coder-lite",
+  "status": "rejected",
+  "stages": {
+    "gate": {
+      "passed": false,
+      "error": "incomplete streaming response or expected one tool call"
+    }
+  }
+}

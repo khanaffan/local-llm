@@ -1,0 +1,164 @@
+{"task_id": "HumanEval/0", "passed": true, "error": "", "secs": 10.51, "completion_tokens": 1063, "finish": "stop", "reasoning_chars": 3330}
+{"task_id": "HumanEval/1", "passed": true, "error": "", "secs": 31.4, "completion_tokens": 3215, "finish": "stop", "reasoning_chars": 10364}
+{"task_id": "HumanEval/2", "passed": true, "error": "", "secs": 9.21, "completion_tokens": 939, "finish": "stop", "reasoning_chars": 3350}
+{"task_id": "HumanEval/3", "passed": true, "error": "", "secs": 4.68, "completion_tokens": 470, "finish": "stop", "reasoning_chars": 1396}
+{"task_id": "HumanEval/4", "passed": true, "error": "", "secs": 5.77, "completion_tokens": 583, "finish": "stop", "reasoning_chars": 1307}
+{"task_id": "HumanEval/5", "passed": true, "error": "", "secs": 12.56, "completion_tokens": 1284, "finish": "stop", "reasoning_chars": 4135}
+{"task_id": "HumanEval/6", "passed": true, "error": "", "secs": 5.97, "completion_tokens": 603, "finish": "stop", "reasoning_chars": 1736}
+{"task_id": "HumanEval/7", "passed": true, "error": "", "secs": 7.42, "completion_tokens": 754, "finish": "stop", "reasoning_chars": 2475}
+{"task_id": "HumanEval/8", "passed": true, "error": "", "secs": 9.56, "completion_tokens": 974, "finish": "stop", "reasoning_chars": 3006}
+{"task_id": "HumanEval/9", "passed": true, "error": "", "secs": 16.69, "completion_tokens": 1710, "finish": "stop", "reasoning_chars": 5756}
+{"task_id": "HumanEval/10", "passed": true, "error": "", "secs": 27.11, "completion_tokens": 2779, "finish": "stop", "reasoning_chars": 8631}
+{"task_id": "HumanEval/11", "passed": true, "error": "", "secs": 22.3, "completion_tokens": 2285, "finish": "stop", "reasoning_chars": 7729}
+{"task_id": "HumanEval/12", "passed": true, "error": "", "secs": 11.54, "completion_tokens": 1178, "finish": "stop", "reasoning_chars": 4036}
+{"task_id": "HumanEval/13", "passed": true, "error": "", "secs": 13.5, "completion_tokens": 1381, "finish": "stop", "reasoning_chars": 4601}
+{"task_id": "HumanEval/14", "passed": true, "error": "", "secs": 6.22, "completion_tokens": 631, "finish": "stop", "reasoning_chars": 1998}
+{"task_id": "HumanEval/15", "passed": true, "error": "", "secs": 11.19, "completion_tokens": 1143, "finish": "stop", "reasoning_chars": 3701}
+{"task_id": "HumanEval/16", "passed": true, "error": "", "secs": 8.95, "completion_tokens": 911, "finish": "stop", "reasoning_chars": 3285}
+{"task_id": "HumanEval/17", "passed": true, "error": "", "secs": 8.91, "completion_tokens": 905, "finish": "stop", "reasoning_chars": 1949}
+{"task_id": "HumanEval/18", "passed": true, "error": "", "secs": 14.39, "completion_tokens": 1472, "finish": "stop", "reasoning_chars": 4766}
+{"task_id": "HumanEval/19", "passed": true, "error": "", "secs": 16.43, "completion_tokens": 1681, "finish": "stop", "reasoning_chars": 5467}
+{"task_id": "HumanEval/20", "passed": true, "error": "", "secs": 17.68, "completion_tokens": 1808, "finish": "stop", "reasoning_chars": 5142}
+{"task_id": "HumanEval/21", "passed": true, "error": "", "secs": 12.8, "completion_tokens": 1307, "finish": "stop", "reasoning_chars": 3872}
+{"task_id": "HumanEval/22", "passed": false, "error": "ion not permitted)\nTraceback (most recent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmp0dytughr/prog.py\", line 29, in <module>\n    check(filter_integers)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmp0dytughr/prog.py\", line 24, in check\n    assert candidate([]) == []\nAssertionError\n", "secs": 1.27, "completion_tokens": 117, "finish": "stop", "reasoning_chars": 371}
+{"task_id": "HumanEval/23", "passed": true, "error": "", "secs": 6.19, "completion_tokens": 628, "finish": "stop", "reasoning_chars": 2531}
+{"task_id": "HumanEval/24", "passed": true, "error": "", "secs": 19.15, "completion_tokens": 1963, "finish": "stop", "reasoning_chars": 6263}
+{"task_id": "HumanEval/25", "passed": true, "error": "", "secs": 12.75, "completion_tokens": 1299, "finish": "stop", "reasoning_chars": 3147}
+{"task_id": "HumanEval/26", "passed": true, "error": "", "secs": 9.97, "completion_tokens": 1016, "finish": "stop", "reasoning_chars": 3497}
+{"task_id": "HumanEval/27", "passed": true, "error": "", "secs": 11.14, "completion_tokens": 1139, "finish": "stop", "reasoning_chars": 4357}
+{"task_id": "HumanEval/28", "passed": true, "error": "", "secs": 6.43, "completion_tokens": 652, "finish": "stop", "reasoning_chars": 2274}
+{"task_id": "HumanEval/29", "passed": true, "error": "", "secs": 7.11, "completion_tokens": 721, "finish": "stop", "reasoning_chars": 2514}
+{"task_id": "HumanEval/30", "passed": true, "error": "", "secs": 9.54, "completion_tokens": 971, "finish": "stop", "reasoning_chars": 2534}
+{"task_id": "HumanEval/31", "passed": true, "error": "", "secs": 12.25, "completion_tokens": 1250, "finish": "stop", "reasoning_chars": 3399}
+{"task_id": "HumanEval/32", "passed": false, "error": "og.py\", line 9, in poly\n    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpsid_m3li/prog.py\", line 9, in <listcomp>\n    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])\nTypeError: must be real number, not NoneType\n", "secs": 80.79, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 28241}
+{"task_id": "HumanEval/33", "passed": true, "error": "", "secs": 15.99, "completion_tokens": 1634, "finish": "stop", "reasoning_chars": 4428}
+{"task_id": "HumanEval/34", "passed": true, "error": "", "secs": 8.19, "completion_tokens": 833, "finish": "stop", "reasoning_chars": 2539}
+{"task_id": "HumanEval/35", "passed": true, "error": "", "secs": 8.23, "completion_tokens": 837, "finish": "stop", "reasoning_chars": 2704}
+{"task_id": "HumanEval/36", "passed": true, "error": "", "secs": 14.99, "completion_tokens": 1533, "finish": "stop", "reasoning_chars": 3905}
+{"task_id": "HumanEval/37", "passed": true, "error": "", "secs": 15.45, "completion_tokens": 1578, "finish": "stop", "reasoning_chars": 4535}
+{"task_id": "HumanEval/38", "passed": true, "error": "", "secs": 18.23, "completion_tokens": 1862, "finish": "stop", "reasoning_chars": 6700}
+{"task_id": "HumanEval/39", "passed": true, "error": "", "secs": 21.63, "completion_tokens": 2213, "finish": "stop", "reasoning_chars": 6555}
+{"task_id": "HumanEval/40", "passed": true, "error": "", "secs": 24.2, "completion_tokens": 2468, "finish": "stop", "reasoning_chars": 7825}
+{"task_id": "HumanEval/41", "passed": true, "error": "", "secs": 24.27, "completion_tokens": 2481, "finish": "stop", "reasoning_chars": 9649}
+{"task_id": "HumanEval/42", "passed": true, "error": "", "secs": 9.58, "completion_tokens": 975, "finish": "stop", "reasoning_chars": 2721}
+{"task_id": "HumanEval/43", "passed": true, "error": "", "secs": 16.27, "completion_tokens": 1663, "finish": "stop", "reasoning_chars": 4148}
+{"task_id": "HumanEval/44", "passed": true, "error": "", "secs": 8.93, "completion_tokens": 908, "finish": "stop", "reasoning_chars": 2330}
+{"task_id": "HumanEval/45", "passed": true, "error": "", "secs": 8.93, "completion_tokens": 911, "finish": "stop", "reasoning_chars": 3371}
+{"task_id": "HumanEval/46", "passed": true, "error": "", "secs": 18.93, "completion_tokens": 1937, "finish": "stop", "reasoning_chars": 5045}
+{"task_id": "HumanEval/47", "passed": true, "error": "", "secs": 45.79, "completion_tokens": 4679, "finish": "stop", "reasoning_chars": 12883}
+{"task_id": "HumanEval/48", "passed": true, "error": "", "secs": 9.0, "completion_tokens": 917, "finish": "stop", "reasoning_chars": 3230}
+{"task_id": "HumanEval/49", "passed": true, "error": "", "secs": 12.31, "completion_tokens": 1256, "finish": "stop", "reasoning_chars": 3094}
+{"task_id": "HumanEval/50", "passed": false, "error": "(errno=Operation not permitted)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpka2_k0ed/prog.py\", line 27\n    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s]))\n                                                                                 ^\nSyntaxError: unmatched ')'\n", "secs": 27.5, "completion_tokens": 2813, "finish": "stop", "reasoning_chars": 8381}
+{"task_id": "HumanEval/51", "passed": true, "error": "", "secs": 13.8, "completion_tokens": 1408, "finish": "stop", "reasoning_chars": 4164}
+{"task_id": "HumanEval/52", "passed": true, "error": "", "secs": 10.04, "completion_tokens": 1024, "finish": "stop", "reasoning_chars": 2973}
+{"task_id": "HumanEval/53", "passed": true, "error": "", "secs": 4.37, "completion_tokens": 439, "finish": "stop", "reasoning_chars": 1439}
+{"task_id": "HumanEval/54", "passed": true, "error": "", "secs": 41.2, "completion_tokens": 4213, "finish": "stop", "reasoning_chars": 10979}
+{"task_id": "HumanEval/55", "passed": true, "error": "", "secs": 10.87, "completion_tokens": 1110, "finish": "stop", "reasoning_chars": 3182}
+{"task_id": "HumanEval/56", "passed": true, "error": "", "secs": 9.62, "completion_tokens": 981, "finish": "stop", "reasoning_chars": 3362}
+{"task_id": "HumanEval/57", "passed": true, "error": "", "secs": 11.54, "completion_tokens": 1178, "finish": "stop", "reasoning_chars": 3470}
+{"task_id": "HumanEval/58", "passed": true, "error": "", "secs": 10.57, "completion_tokens": 1078, "finish": "stop", "reasoning_chars": 2878}
+{"task_id": "HumanEval/59", "passed": true, "error": "", "secs": 22.02, "completion_tokens": 2257, "finish": "stop", "reasoning_chars": 6810}
+{"task_id": "HumanEval/60", "passed": true, "error": "", "secs": 7.48, "completion_tokens": 759, "finish": "stop", "reasoning_chars": 1816}
+{"task_id": "HumanEval/61", "passed": true, "error": "", "secs": 7.18, "completion_tokens": 729, "finish": "stop", "reasoning_chars": 2102}
+{"task_id": "HumanEval/62", "passed": true, "error": "", "secs": 13.25, "completion_tokens": 1353, "finish": "stop", "reasoning_chars": 3467}
+{"task_id": "HumanEval/63", "passed": true, "error": "", "secs": 19.59, "completion_tokens": 2004, "finish": "stop", "reasoning_chars": 5493}
+{"task_id": "HumanEval/64", "passed": true, "error": "", "secs": 32.58, "completion_tokens": 3333, "finish": "stop", "reasoning_chars": 10949}
+{"task_id": "HumanEval/65", "passed": true, "error": "", "secs": 42.01, "completion_tokens": 4292, "finish": "stop", "reasoning_chars": 14243}
+{"task_id": "HumanEval/66", "passed": true, "error": "", "secs": 18.3, "completion_tokens": 1866, "finish": "stop", "reasoning_chars": 7340}
+{"task_id": "HumanEval/67", "passed": false, "error": "k (most recent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmp46mu2gkf/prog.py\", line 31, in <module>\n    check(fruit_distribution)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmp46mu2gkf/prog.py\", line 22, in check\n    assert candidate(\"5 apples and 6 oranges\",19) == 8\nAssertionError\n", "secs": 80.79, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 29982}
+{"task_id": "HumanEval/68", "passed": true, "error": "", "secs": 40.54, "completion_tokens": 4137, "finish": "stop", "reasoning_chars": 15156}
+{"task_id": "HumanEval/69", "passed": true, "error": "", "secs": 14.64, "completion_tokens": 1495, "finish": "stop", "reasoning_chars": 4735}
+{"task_id": "HumanEval/70", "passed": true, "error": "", "secs": 14.37, "completion_tokens": 1468, "finish": "stop", "reasoning_chars": 3936}
+{"task_id": "HumanEval/71", "passed": true, "error": "", "secs": 9.04, "completion_tokens": 920, "finish": "stop", "reasoning_chars": 2323}
+{"task_id": "HumanEval/72", "passed": true, "error": "", "secs": 17.98, "completion_tokens": 1836, "finish": "stop", "reasoning_chars": 5880}
+{"task_id": "HumanEval/73", "passed": true, "error": "", "secs": 9.57, "completion_tokens": 973, "finish": "stop", "reasoning_chars": 2575}
+{"task_id": "HumanEval/74", "passed": true, "error": "", "secs": 20.14, "completion_tokens": 2058, "finish": "stop", "reasoning_chars": 6662}
+{"task_id": "HumanEval/75", "passed": true, "error": "", "secs": 68.78, "completion_tokens": 7003, "finish": "stop", "reasoning_chars": 22781}
+{"task_id": "HumanEval/76", "passed": true, "error": "", "secs": 21.96, "completion_tokens": 2245, "finish": "stop", "reasoning_chars": 6324}
+{"task_id": "HumanEval/77", "passed": false, "error": "le \"/Users/affan.khan/local-llm/eval/tmp/tmpd3fhoaa3/prog.py\", line 36, in <module>\n    check(iscube)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpd3fhoaa3/prog.py\", line 22, in check\n    assert candidate(1) == True, \"First test error: \" + str(candidate(1))\nAssertionError: First test error: None\n", "secs": 80.85, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 28943}
+{"task_id": "HumanEval/78", "passed": true, "error": "", "secs": 14.0, "completion_tokens": 1422, "finish": "stop", "reasoning_chars": 3569}
+{"task_id": "HumanEval/79", "passed": true, "error": "", "secs": 12.29, "completion_tokens": 1254, "finish": "stop", "reasoning_chars": 4181}
+{"task_id": "HumanEval/80", "passed": true, "error": "", "secs": 9.29, "completion_tokens": 945, "finish": "stop", "reasoning_chars": 2669}
+{"task_id": "HumanEval/81", "passed": true, "error": "", "secs": 31.04, "completion_tokens": 3171, "finish": "stop", "reasoning_chars": 7022}
+{"task_id": "HumanEval/82", "passed": true, "error": "", "secs": 5.42, "completion_tokens": 547, "finish": "stop", "reasoning_chars": 1596}
+{"task_id": "HumanEval/83", "passed": true, "error": "", "secs": 26.8, "completion_tokens": 2747, "finish": "stop", "reasoning_chars": 9121}
+{"task_id": "HumanEval/84", "passed": true, "error": "", "secs": 4.7, "completion_tokens": 471, "finish": "stop", "reasoning_chars": 1455}
+{"task_id": "HumanEval/85", "passed": true, "error": "", "secs": 9.54, "completion_tokens": 973, "finish": "stop", "reasoning_chars": 2973}
+{"task_id": "HumanEval/86", "passed": true, "error": "", "secs": 13.93, "completion_tokens": 1422, "finish": "stop", "reasoning_chars": 4487}
+{"task_id": "HumanEval/87", "passed": true, "error": "", "secs": 15.66, "completion_tokens": 1597, "finish": "stop", "reasoning_chars": 3967}
+{"task_id": "HumanEval/88", "passed": true, "error": "", "secs": 18.79, "completion_tokens": 1921, "finish": "stop", "reasoning_chars": 5918}
+{"task_id": "HumanEval/89", "passed": true, "error": "", "secs": 18.16, "completion_tokens": 1859, "finish": "stop", "reasoning_chars": 6023}
+{"task_id": "HumanEval/90", "passed": true, "error": "", "secs": 12.3, "completion_tokens": 1252, "finish": "stop", "reasoning_chars": 3978}
+{"task_id": "HumanEval/91", "passed": true, "error": "", "secs": 20.73, "completion_tokens": 2122, "finish": "stop", "reasoning_chars": 7494}
+{"task_id": "HumanEval/92", "passed": true, "error": "", "secs": 16.87, "completion_tokens": 1725, "finish": "stop", "reasoning_chars": 5209}
+{"task_id": "HumanEval/93", "passed": true, "error": "", "secs": 33.9, "completion_tokens": 3468, "finish": "stop", "reasoning_chars": 11954}
+{"task_id": "HumanEval/94", "passed": true, "error": "", "secs": 30.71, "completion_tokens": 3135, "finish": "stop", "reasoning_chars": 7714}
+{"task_id": "HumanEval/95", "passed": true, "error": "", "secs": 27.4, "completion_tokens": 2803, "finish": "stop", "reasoning_chars": 9700}
+{"task_id": "HumanEval/96", "passed": false, "error": "ation not permitted)\nTraceback (most recent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpn8u9yi0q/prog.py\", line 32, in <module>\n    check(count_up_to)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpn8u9yi0q/prog.py\", line 19, in check\n    assert candidate(5) == [2,3]\nAssertionError\n", "secs": 2.69, "completion_tokens": 263, "finish": "stop", "reasoning_chars": 807}
+{"task_id": "HumanEval/97", "passed": true, "error": "", "secs": 12.12, "completion_tokens": 1237, "finish": "stop", "reasoning_chars": 3740}
+{"task_id": "HumanEval/98", "passed": true, "error": "", "secs": 9.16, "completion_tokens": 934, "finish": "stop", "reasoning_chars": 2458}
+{"task_id": "HumanEval/99", "passed": true, "error": "", "secs": 27.73, "completion_tokens": 2835, "finish": "stop", "reasoning_chars": 8242}
+{"task_id": "HumanEval/100", "passed": true, "error": "", "secs": 931.37, "completion_tokens": 2533, "finish": "stop", "reasoning_chars": 8855}
+{"task_id": "HumanEval/101", "passed": true, "error": "", "secs": 13.43, "completion_tokens": 1377, "finish": "stop", "reasoning_chars": 4764}
+{"task_id": "HumanEval/102", "passed": true, "error": "", "secs": 34.32, "completion_tokens": 2731, "finish": "stop", "reasoning_chars": 9543}
+{"task_id": "HumanEval/103", "passed": true, "error": "", "secs": 39.1, "completion_tokens": 2068, "finish": "stop", "reasoning_chars": 5561}
+{"task_id": "HumanEval/104", "passed": true, "error": "", "secs": 979.02, "completion_tokens": 1118, "finish": "stop", "reasoning_chars": 3334}
+{"task_id": "HumanEval/105", "passed": true, "error": "", "secs": 59.92, "completion_tokens": 5626, "finish": "stop", "reasoning_chars": 18636}
+{"task_id": "HumanEval/106", "passed": true, "error": "", "secs": 15.43, "completion_tokens": 1005, "finish": "stop", "reasoning_chars": 2166}
+{"task_id": "HumanEval/107", "passed": true, "error": "", "secs": 39.33, "completion_tokens": 1743, "finish": "stop", "reasoning_chars": 5142}
+{"task_id": "HumanEval/108", "passed": true, "error": "", "secs": 925.75, "completion_tokens": 2071, "finish": "stop", "reasoning_chars": 6090}
+{"task_id": "HumanEval/109", "passed": true, "error": "", "secs": 16.72, "completion_tokens": 1712, "finish": "stop", "reasoning_chars": 5434}
+{"task_id": "HumanEval/110", "passed": true, "error": "", "secs": 1026.93, "completion_tokens": 6978, "finish": "stop", "reasoning_chars": 24760}
+{"task_id": "HumanEval/111", "passed": true, "error": "", "secs": 17.59, "completion_tokens": 1806, "finish": "stop", "reasoning_chars": 5694}
+{"task_id": "HumanEval/112", "passed": true, "error": "", "secs": 7.84, "completion_tokens": 794, "finish": "stop", "reasoning_chars": 2160}
+{"task_id": "HumanEval/113", "passed": false, "error": "/local-llm/eval/tmp/tmpoarnr7wd/prog.py\", line 34, in <module>\n    check(odd_count)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpoarnr7wd/prog.py\", line 21, in check\n    assert candidate(['1234567']) == [\"the number of odd elements 4n the str4ng 4 of the 4nput.\"], \"Test 1\"\nAssertionError: Test 1\n", "secs": 1030.34, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 30342}
+{"task_id": "HumanEval/114", "passed": true, "error": "", "secs": 8.42, "completion_tokens": 860, "finish": "stop", "reasoning_chars": 2601}
+{"task_id": "HumanEval/115", "passed": true, "error": "", "secs": 22.26, "completion_tokens": 2276, "finish": "stop", "reasoning_chars": 8697}
+{"task_id": "HumanEval/116", "passed": false, "error": ")\nTraceback (most recent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpo_9i08cs/prog.py\", line 46, in <module>\n    check(sort_array)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpo_9i08cs/prog.py\", line 32, in check\n    assert candidate([1,5,2,3,4]) == [1, 2, 4, 3, 5]\nAssertionError\n", "secs": 1065.48, "completion_tokens": 7757, "finish": "stop", "reasoning_chars": 26700}
+{"task_id": "HumanEval/117", "passed": true, "error": "", "secs": 33.57, "completion_tokens": 3038, "finish": "stop", "reasoning_chars": 10040}
+{"task_id": "HumanEval/118", "passed": true, "error": "", "secs": 38.34, "completion_tokens": 2443, "finish": "stop", "reasoning_chars": 8555}
+{"task_id": "HumanEval/119", "passed": true, "error": "", "secs": 937.93, "completion_tokens": 1675, "finish": "stop", "reasoning_chars": 5634}
+{"task_id": "HumanEval/120", "passed": true, "error": "", "secs": 9.48, "completion_tokens": 966, "finish": "stop", "reasoning_chars": 2419}
+{"task_id": "HumanEval/121", "passed": true, "error": "", "secs": 19.42, "completion_tokens": 1991, "finish": "stop", "reasoning_chars": 5674}
+{"task_id": "HumanEval/122", "passed": true, "error": "", "secs": 20.68, "completion_tokens": 1915, "finish": "stop", "reasoning_chars": 6513}
+{"task_id": "HumanEval/123", "passed": true, "error": "", "secs": 18.3, "completion_tokens": 1196, "finish": "stop", "reasoning_chars": 3116}
+{"task_id": "HumanEval/124", "passed": true, "error": "", "secs": 47.79, "completion_tokens": 2332, "finish": "stop", "reasoning_chars": 6245}
+{"task_id": "HumanEval/125", "passed": true, "error": "", "secs": 1017.31, "completion_tokens": 1737, "finish": "stop", "reasoning_chars": 6005}
+{"task_id": "HumanEval/126", "passed": true, "error": "", "secs": 24.04, "completion_tokens": 2466, "finish": "stop", "reasoning_chars": 7318}
+{"task_id": "HumanEval/127", "passed": true, "error": "", "secs": 23.06, "completion_tokens": 2061, "finish": "stop", "reasoning_chars": 6091}
+{"task_id": "HumanEval/128", "passed": true, "error": "", "secs": 25.66, "completion_tokens": 1858, "finish": "stop", "reasoning_chars": 6251}
+{"task_id": "HumanEval/129", "passed": false, "error": "t recent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmprgup2aex/prog.py\", line 56, in <module>\n    check(minPath)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmprgup2aex/prog.py\", line 40, in check\n    assert candidate([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [1, 2, 1]\nAssertionError\n", "secs": 1022.38, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 29701}
+{"task_id": "HumanEval/130", "passed": true, "error": "", "secs": 1943.94, "completion_tokens": 6831, "finish": "stop", "reasoning_chars": 19187}
+{"task_id": "HumanEval/131", "passed": true, "error": "", "secs": 8.06, "completion_tokens": 822, "finish": "stop", "reasoning_chars": 2464}
+{"task_id": "HumanEval/132", "passed": false, "error": "\", line 41, in <module>\n    check(is_nested)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpuu9swy5e/prog.py\", line 22, in check\n    assert candidate('[[]]') == True, \"This prints if this assert fails 1 (good for debugging!)\"\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n", "secs": 110.36, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 27336}
+{"task_id": "HumanEval/133", "passed": true, "error": "", "secs": 974.72, "completion_tokens": 1108, "finish": "stop", "reasoning_chars": 3130}
+{"task_id": "HumanEval/134", "passed": false, "error": "eback (most recent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpp8opz6gu/prog.py\", line 38, in <module>\n    check(check_if_last_char_is_a_letter)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpp8opz6gu/prog.py\", line 22, in check\n    assert candidate(\"apple\") == False\nAssertionError\n", "secs": 103.01, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 32818}
+{"task_id": "HumanEval/135", "passed": true, "error": "", "secs": 969.36, "completion_tokens": 862, "finish": "stop", "reasoning_chars": 2621}
+{"task_id": "HumanEval/136", "passed": true, "error": "", "secs": 11.56, "completion_tokens": 1183, "finish": "stop", "reasoning_chars": 3449}
+{"task_id": "HumanEval/137", "passed": true, "error": "", "secs": 25.0, "completion_tokens": 2570, "finish": "stop", "reasoning_chars": 8868}
+{"task_id": "HumanEval/138", "passed": true, "error": "", "secs": 10.3, "completion_tokens": 1050, "finish": "stop", "reasoning_chars": 3132}
+{"task_id": "HumanEval/139", "passed": true, "error": "", "secs": 4.2, "completion_tokens": 421, "finish": "stop", "reasoning_chars": 1054}
+{"task_id": "HumanEval/140", "passed": true, "error": "", "secs": 18.03, "completion_tokens": 1442, "finish": "stop", "reasoning_chars": 5175}
+{"task_id": "HumanEval/141", "passed": true, "error": "", "secs": 58.79, "completion_tokens": 3086, "finish": "stop", "reasoning_chars": 10696}
+{"task_id": "HumanEval/142", "passed": true, "error": "", "secs": 929.09, "completion_tokens": 1938, "finish": "stop", "reasoning_chars": 5460}
+{"task_id": "HumanEval/143", "passed": true, "error": "", "secs": 8.33, "completion_tokens": 850, "finish": "stop", "reasoning_chars": 2550}
+{"task_id": "HumanEval/144", "passed": true, "error": "", "secs": 7.62, "completion_tokens": 776, "finish": "stop", "reasoning_chars": 2396}
+{"task_id": "HumanEval/145", "passed": false, "error": "ent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpp4qnse9p/prog.py\", line 32, in <module>\n    check(order_by_points)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpp4qnse9p/prog.py\", line 20, in check\n    assert candidate([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]\nAssertionError\n", "secs": 1045.18, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 27838}
+{"task_id": "HumanEval/146", "passed": true, "error": "", "secs": 446.95, "completion_tokens": 1963, "finish": "stop", "reasoning_chars": 5507}
+{"task_id": "HumanEval/147", "passed": true, "error": "", "secs": 55.99, "completion_tokens": 5586, "finish": "stop", "reasoning_chars": 13626}
+{"task_id": "HumanEval/148", "passed": false, "error": "in <module>\n    check(bf)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpod1tu5f7/prog.py\", line 25, in check\n    assert candidate(\"Jupiter\", \"Neptune\") == (\"Saturn\", \"Uranus\"), \"First test error: \" + str(len(candidate(\"Jupiter\", \"Neptune\")))      \nTypeError: object of type 'NoneType' has no len()\n", "secs": 82.2, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 33051}
+{"task_id": "HumanEval/149", "passed": true, "error": "", "secs": 18.73, "completion_tokens": 1870, "finish": "stop", "reasoning_chars": 6816}
+{"task_id": "HumanEval/150", "passed": true, "error": "", "secs": 11.37, "completion_tokens": 1157, "finish": "stop", "reasoning_chars": 3965}
+{"task_id": "HumanEval/151", "passed": true, "error": "", "secs": 29.29, "completion_tokens": 2982, "finish": "stop", "reasoning_chars": 9266}
+{"task_id": "HumanEval/152", "passed": true, "error": "", "secs": 15.17, "completion_tokens": 1542, "finish": "stop", "reasoning_chars": 4260}
+{"task_id": "HumanEval/153", "passed": true, "error": "", "secs": 22.92, "completion_tokens": 2332, "finish": "stop", "reasoning_chars": 7625}
+{"task_id": "HumanEval/154", "passed": false, "error": "ecent call last):\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpurr_0l50/prog.py\", line 32, in <module>\n    check(cycpattern_check)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpurr_0l50/prog.py\", line 23, in check\n    assert  candidate(\"xyzw\",\"xyw\") == False , \"test #0\"\nAssertionError: test #0\n", "secs": 81.41, "completion_tokens": 8192, "finish": "length", "reasoning_chars": 25014}
+{"task_id": "HumanEval/155", "passed": true, "error": "", "secs": 9.62, "completion_tokens": 971, "finish": "stop", "reasoning_chars": 2756}
+{"task_id": "HumanEval/156", "passed": true, "error": "", "secs": 17.8, "completion_tokens": 1792, "finish": "stop", "reasoning_chars": 5150}
+{"task_id": "HumanEval/157", "passed": false, "error": "in <module>\n    check(right_angle_triangle)\n  File \"/Users/affan.khan/local-llm/eval/tmp/tmpe7s3hq98/prog.py\", line 19, in check\n    assert candidate(3, 4, 5) == True, \"This prints if this assert fails 1 (good for debugging!)\"\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n", "secs": 2.21, "completion_tokens": 215, "finish": "stop", "reasoning_chars": 786}
+{"task_id": "HumanEval/158", "passed": true, "error": "", "secs": 23.24, "completion_tokens": 2367, "finish": "stop", "reasoning_chars": 8609}
+{"task_id": "HumanEval/159", "passed": true, "error": "", "secs": 18.75, "completion_tokens": 1873, "finish": "stop", "reasoning_chars": 5164}
+{"task_id": "HumanEval/160", "passed": true, "error": "", "secs": 36.67, "completion_tokens": 3660, "finish": "stop", "reasoning_chars": 14133}
+{"task_id": "HumanEval/161", "passed": true, "error": "", "secs": 17.51, "completion_tokens": 1730, "finish": "stop", "reasoning_chars": 6166}
+{"task_id": "HumanEval/162", "passed": true, "error": "", "secs": 20.03, "completion_tokens": 1953, "finish": "stop", "reasoning_chars": 5743}
+{"task_id": "HumanEval/163", "passed": true, "error": "", "secs": 22.9, "completion_tokens": 2249, "finish": "stop", "reasoning_chars": 6788}

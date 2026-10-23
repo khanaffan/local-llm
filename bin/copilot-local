@@ -28,8 +28,8 @@ export COPILOT_MODEL="$ALIAS"
 export COPILOT_PROVIDER_MAX_OUTPUT_TOKENS=$MAX_OUT
 export COPILOT_PROVIDER_MAX_PROMPT_TOKENS=$MAX_PROMPT
 [ "$OFFLINE" = 1 ] && export COPILOT_OFFLINE=true
-# With the full tool set, Qwen3-Coder-Next keeps calling read_bash / read_agent with file names
+# With the full tool set, Qwen3-Coder-Next (long) keeps calling read_bash / read_agent with file names
 # and loops. Offer it only the core coding tools (override: LOCAL_LLM_COPILOT_TOOLS).
 TOOLS=()
-case "$P" in medium|long) TOOLS=(--available-tools ${LOCAL_LLM_COPILOT_TOOLS:-bash view edit create glob grep}) ;; esac
+case "$P" in long) TOOLS=(--available-tools ${LOCAL_LLM_COPILOT_TOOLS:-bash view edit create glob grep}) ;; esac
 exec copilot ${TOOLS[@]+"${TOOLS[@]}"} "$@"

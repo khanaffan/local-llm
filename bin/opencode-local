@@ -8,10 +8,17 @@ P="${1:-fast}"; shift || true
 export OPENCODE_CONFIG="$ROOT/opencode.json"
 # helper requests (titles etc.) go to the resident model
 OVERRIDE="\"small_model\": \"local-llm/$ALIAS\""
-# Qwen3-Coder in OpenCode tends to keep calling tools (todowrite, re-running tests) after the
+case "$P" in cand-*)
+  OVERRIDE="$OVERRIDE, \"provider\": {\"local-llm\": {\"models\": {\"$ALIAS\": {
+    \"name\": \"$ALIAS\", \"tool_call\": true, \"reasoning\": true,
+    \"limit\": {\"context\": $CTX, \"output\": $MAX_OUT}
+  }}}}"
+  ;;
+esac
+# Qwen3-Coder-Next (long) in OpenCode tends to keep calling tools (todowrite, re-running tests) after the
 # task is done, so the turn never ends. Drop the todo tools and cap agentic steps; at the cap
 # OpenCode forces a text-only reply. Raise LOCAL_LLM_OPENCODE_STEPS for very long tasks.
-case "$P" in lite|medium|long)
+case "$P" in long)
   S="${LOCAL_LLM_OPENCODE_STEPS:-50}"
   OVERRIDE="$OVERRIDE, \"tools\": {\"todowrite\": false, \"todoread\": false}"
   OVERRIDE="$OVERRIDE, \"agent\": {\"build\": {\"steps\": $S}, \"plan\": {\"steps\": $S}}" ;;

@@ -1,0 +1,198 @@
+{
+  "name": "cand-gemma4-26b",
+  "status": "complete",
+  "stages": {
+    "gate": {
+      "passed": true,
+      "chat": true,
+      "streaming_tool": true,
+      "tool_result": true
+    },
+    "bench": {
+      "decode_tps": 98.800645,
+      "repetitions": 3
+    },
+    "humaneval": {
+      "total": 164,
+      "passed": 160,
+      "errors": 0,
+      "truncated": 4,
+      "median_secs": 22.08
+    },
+    "smoke": {
+      "passed": 5,
+      "total": 6,
+      "results": [
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 29.33,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 47.77,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "claude",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 18.44,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "codex",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 31.83,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "qwen",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 29.68,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "aider",
+          "passed": false,
+          "exit_code": null,
+          "test_exit_code": 1,
+          "test_unchanged": true,
+          "timeout": true,
+          "secs": 600.11,
+          "fixture": "bugfix"
+        }
+      ]
+    },
+    "fixtures": {
+      "passed": 6,
+      "total": 6,
+      "results": [
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 25.52,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 18.88,
+          "fixture": "bugfix"
+        },
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 86.32,
+          "fixture": "multi"
+        },
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 32.26,
+          "fixture": "multi"
+        },
+        {
+          "agent": "opencode",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 45.02,
+          "fixture": "repair"
+        },
+        {
+          "agent": "copilot",
+          "passed": true,
+          "exit_code": 0,
+          "test_exit_code": 0,
+          "test_unchanged": true,
+          "timeout": false,
+          "secs": 33.43,
+          "fixture": "repair"
+        }
+      ]
+    },
+    "long": {
+      "target_tokens": 100128,
+      "runs": [
+        {
+          "mode": "cold",
+          "prompt_tokens": 100126,
+          "secs": 77.139,
+          "recall": 3,
+          "answer": "7391-QX, BLUE HERON, 48213",
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 100126,
+            "prompt_ms": 70798.226,
+            "prompt_per_token_ms": 0.7070913249305875,
+            "prompt_per_second": 1414.2444755607294,
+            "predicted_n": 309,
+            "predicted_ms": 6305.588,
+            "predicted_per_token_ms": 20.472688311688312,
+            "predicted_per_second": 48.84556364925841
+          },
+          "finish": "stop"
+        },
+        {
+          "mode": "warm",
+          "prompt_tokens": 100126,
+          "secs": 6.382,
+          "recall": 3,
+          "answer": "7391-QX, BLUE HERON, 48213",
+          "timings": {
+            "cache_n": 100125,
+            "prompt_n": 1,
+            "prompt_ms": 50.361,
+            "prompt_per_token_ms": 50.361,
+            "prompt_per_second": 19.856635094616866,
+            "predicted_n": 309,
+            "predicted_ms": 6295.531,
+            "predicted_per_token_ms": 20.440035714285713,
+            "predicted_per_second": 48.92359357772998
+          },
+          "finish": "stop"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "chat": true,
+  "streaming_tool": true,
+  "tool_result": true
+}

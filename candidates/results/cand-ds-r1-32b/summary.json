@@ -1,0 +1,10 @@
+{
+  "name": "cand-ds-r1-32b",
+  "status": "rejected",
+  "stages": {
+    "gate": {
+      "passed": false,
+      "error": "incomplete streaming response or expected one tool call"
+    }
+  }
+}

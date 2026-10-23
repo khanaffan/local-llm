@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Usage: ./download.sh <fast|lite|medium|coder|smart|long|max> [...]     (long uses the medium weights)
+# Usage: ./download.sh <fast|lite|medium|coder|smart|long|max> [...]
 # Downloads pinned weights from manifest.json into models/: resumable, retries, checks free
 # disk first, verifies the full SHA-256, and skips files that are already verified.
 # Set HF_TOKEN if Hugging Face rate-limits you.
 set -euo pipefail
 [ "$(id -u)" -ne 0 ] || { echo "error: do not run with sudo" >&2; exit 1; }
 ROOT="$(cd "$(dirname "$0")" && pwd)"
+. "$ROOT/profile.sh"
 [ $# -gt 0 ] || { echo "usage: $0 <fast|lite|medium|coder|smart|long|max> [...]" >&2; exit 1; }
 mkdir -p "$ROOT/models"
 
@@ -14,7 +15,8 @@ size() { stat -f %z "$1" 2>/dev/null || echo 0; }
 
 PROFILES="fast|lite|medium|coder|smart|long|max"
 for P in "$@"; do
-  INFO=$(python3 - "$ROOT/manifest.json" "$P" "$PROFILES" <<'PY'
+  resolve_profile "$P" || exit 1
+  INFO=$(python3 - "$PROFILE_MANIFEST" "$P" "$PROFILES" <<'PY'
 import json, sys
 m = json.load(open(sys.argv[1])); p = sys.argv[2]
 if not isinstance(m.get(p), dict): sys.exit(f"error: unknown profile '{p}' ({sys.argv[3]})")

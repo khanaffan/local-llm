@@ -6,13 +6,21 @@ Resumable: problems already in results/<profile>.jsonl are skipped.
 Generated code runs under macOS sandbox-exec (no network, writes only to a temp dir).
 """
 import gzip, json, os, re, subprocess, sys, tempfile, time, urllib.request, urllib.error
+import argparse
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PROFILE = sys.argv[1]
-LIMIT = int(sys.argv[2]) if len(sys.argv) > 2 else None
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("profile")
+parser.add_argument("limit", nargs="?", type=int)
+parser.add_argument("--output", help="Separate result file, e.g. for a candidate run")
+parser.add_argument("--retry-errors", action="store_true",
+                    help="Retry transport/request errors only, never failed test answers")
+args = parser.parse_args()
+PROFILE = args.profile
+LIMIT = args.limit
 ALIAS = "local-" + PROFILE
 KEY = open(os.path.join(ROOT, "..", "run", "api-key")).read().strip()
-OUT = os.path.join(ROOT, "results", f"{PROFILE}.jsonl")
+OUT = os.path.abspath(args.output or os.path.join(ROOT, "results", f"{PROFILE}.jsonl"))
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 PROMPT = ("Complete the following Python function. Reply with the complete function "
@@ -60,7 +68,17 @@ def main():
         tasks = tasks[:LIMIT]
     done = set()
     if os.path.exists(OUT):
-        done = {json.loads(l)["task_id"] for l in open(OUT)}
+        rows = [json.loads(l) for l in open(OUT)]
+        if args.retry_errors:
+            kept = [row for row in rows if row["finish"] != "error"]
+            if len(kept) != len(rows):
+                print(f"[{PROFILE}] retrying {len(rows) - len(kept)} request errors", flush=True)
+                temporary = OUT + ".tmp"
+                with open(temporary, "w") as f:
+                    f.writelines(json.dumps(row) + "\n" for row in kept)
+                os.replace(temporary, OUT)
+            rows = kept
+        done = {row["task_id"] for row in rows}
     for i, task in enumerate(tasks):
         if task["task_id"] in done:
             continue

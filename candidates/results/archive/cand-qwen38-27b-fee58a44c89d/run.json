@@ -1,0 +1,63 @@
+{
+  "entry": {
+    "repo": "unsloth/Qwen3.8-27B-GGUF",
+    "model": "Qwen3.8-27B",
+    "quant": "UD-Q6_K",
+    "wave": 1,
+    "thinking": true,
+    "sampling": "--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0 --reasoning-effort medium",
+    "revision": "4ca720788d1e01f1bff70c033e0d0028fd02e502",
+    "files": [
+      {
+        "file": "Qwen3.8-27B-UD-Q6_K.gguf",
+        "bytes": 21983677344,
+        "sha256": "c9c206812fbe4ac7b76a729e25928b63f2ae89d37f69da7a71c20aec763cd436"
+      }
+    ],
+    "bytes": 21983677344,
+    "license": "apache-2.0",
+    "source_card": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/blob/4ca720788d1e01f1bff70c033e0d0028fd02e502/README.md"
+  },
+  "profile": {
+    "model": "models/Qwen3.8-27B-UD-Q6_K.gguf",
+    "alias": "local-cand-qwen38-27b",
+    "context": "131072",
+    "cache_k": "f16",
+    "cache_v": "f16",
+    "args": "--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0 --reasoning-effort medium",
+    "template": ""
+  },
+  "runtime": "version: 0.7.0 (build 11669, commit 620d2225c)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64",
+  "sources": {
+    "candidates/run.py": "5be310a31167f778eebbe7b94ac0d0f0b5854edf5c51115c3e6a09003deed53d",
+    "candidates/pin.py": "fb771f1a0ec556239e8b9a982325708dbc4886d72f5ce73d31510f49caf4d24b",
+    "eval/run_humaneval.py": "41568cd53a58fa91d2f967cc4efdc51921d4d58905fbf75c1b5531a4290475bd",
+    "profile.sh": "0f5ff566bafd82db3a418bd6a7da26a25a8547d82f44eb024bb5376fef24c1e8",
+    "llm.sh": "b50268574a5a0857a4a185c6cbf21ca7d28d21e692a69458dd6d30931909801f",
+    "bin/_common.sh": "19f38864dab31c6d206f712740afa2ebb3d0e8a1bfd968077bc78862cedf6b18",
+    "candidates/profiles/cand-qwen38-27b.env": "82022225ff580fb78aa8da1999bd245ff2d6f2077d4bdc4c5676de581d1cacb9",
+    "eval/HumanEval.jsonl.gz": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+    "tools/package-lock.json": "99b07ae66b729179566f1ddd90d15000c1505270ebdeea533cb3b355c191ed8f",
+    "bin/aider-local": "80b6b50c947c33eee0cc9396f936cbd735e8edb823d2f21b099b8e2504fdc2e8",
+    "bin/claude-local": "e401b83abd7e447d12ec7ab34a53d9d3e423f7b49aac0ab7983d59d0419cc9ef",
+    "bin/codex-local": "20c59cc39d78421d395319e268f19cc18473b272b30c8dbb563755fbfd3aba7c",
+    "bin/copilot-local": "b320cbc55de36a1a81310e9ced74f039d3728a67852e85152cfccda9aa29aed8",
+    "bin/opencode-local": "e2c1fabd9d36aa7d5c6ddf28793d39cd01ccabdf3844383d0a3b1e4add4288ba",
+    "bin/qwen-local": "1fa526f4fa58d6d70c71d1c745d6e92b22e88bca8c968405e41a3244b90cbc92",
+    "fixtures/bugfix_cp/calc.py": "a10dc6656644850894e5f76127d797c57bf0711ebd1a3d85f988beb137b6d5c1",
+    "fixtures/bugfix_cp/test_calc.py": "8218a0cf4ec7912ebc2f677b3297d204b06a146c45b9d733e72d7912a81687d6",
+    "fixtures/bugfix_oc/calc.py": "a10dc6656644850894e5f76127d797c57bf0711ebd1a3d85f988beb137b6d5c1",
+    "fixtures/bugfix_oc/test_calc.py": "8218a0cf4ec7912ebc2f677b3297d204b06a146c45b9d733e72d7912a81687d6",
+    "fixtures/multi_cp/fmt.py": "32861b3b78cd86554023259abda81f08ab40da93b1ac5715c9406202a20a4913",
+    "fixtures/multi_cp/receipt.py": "b8509a2570a7da38d7cf05a9d88e0a75b69ad4554cee33f6ec90f96f1a10bcdb",
+    "fixtures/multi_cp/test_all.py": "9664dd13865fb40e7a0846c5f2031641d59c1de1897e81f91c7df412d2422cc5",
+    "fixtures/multi_oc/fmt.py": "32861b3b78cd86554023259abda81f08ab40da93b1ac5715c9406202a20a4913",
+    "fixtures/multi_oc/receipt.py": "b8509a2570a7da38d7cf05a9d88e0a75b69ad4554cee33f6ec90f96f1a10bcdb",
+    "fixtures/multi_oc/test_all.py": "9664dd13865fb40e7a0846c5f2031641d59c1de1897e81f91c7df412d2422cc5",
+    "fixtures/repair_cp/lru.py": "7328fdba0cc2107301547d879f6af303003cb8630b8561853c4d663b9aa7b10f",
+    "fixtures/repair_cp/test_lru.py": "8916353bbfeac1ccb149d73fcd697e5988a2720f93ea8f13ed5bed3f0e926886",
+    "fixtures/repair_oc/lru.py": "53958516c370e75007c4f709fa274aa6c4a37bcd8c06b8d60816996492f759da",
+    "fixtures/repair_oc/test_lru.py": "8916353bbfeac1ccb149d73fcd697e5988a2720f93ea8f13ed5bed3f0e926886"
+  },
+  "fingerprint": "fee58a44c89d8a2c12086b491296fbe2ce58508e81364c2b86473f498d348a30"
+}

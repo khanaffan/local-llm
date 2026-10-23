@@ -1,0 +1,43 @@
+{
+  "target_tokens": 100128,
+  "runs": [
+    {
+      "mode": "cold",
+      "prompt_tokens": 100128,
+      "secs": 61.747,
+      "recall": 3,
+      "answer": "7391-QX BLUE HERON 48213",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 100128,
+        "prompt_ms": 58961.523,
+        "prompt_per_token_ms": 0.5888614872962608,
+        "prompt_per_second": 1698.1922261404272,
+        "predicted_n": 210,
+        "predicted_ms": 2768.428,
+        "predicted_per_token_ms": 13.246066985645932,
+        "predicted_per_second": 75.49410712505437
+      },
+      "finish": "stop"
+    },
+    {
+      "mode": "warm",
+      "prompt_tokens": 100128,
+      "secs": 2.826,
+      "recall": 3,
+      "answer": "7391-QX BLUE HERON 48213",
+      "timings": {
+        "cache_n": 100124,
+        "prompt_n": 4,
+        "prompt_ms": 34.471,
+        "prompt_per_token_ms": 8.61775,
+        "prompt_per_second": 116.03956949319719,
+        "predicted_n": 210,
+        "predicted_ms": 2772.666,
+        "predicted_per_token_ms": 13.266344497607657,
+        "predicted_per_second": 75.37871492635607
+      },
+      "finish": "stop"
+    }
+  ]
+}

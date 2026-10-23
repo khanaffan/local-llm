@@ -6,7 +6,7 @@ set -euo pipefail
 P="${1:-fast}"; shift || true
 . "$(dirname "$0")/_common.sh" "$P"
 
-S="$ROOT/run/qwen-settings-$P.json"
+S="$LOCAL_LLM_RUN_DIR/qwen-settings-$P.json"
 cat >"$S" <<JSON
 {"model": {"name": "$ALIAS", "generationConfig": {"contextWindowSize": $CTX,
   "samplingParams": {"max_tokens": $MAX_OUT}}},

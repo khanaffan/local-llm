@@ -12,36 +12,26 @@
     ]
   },
   "lite": {
-    "repo": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
-    "revision": "b17cb02dd882d5b6ab62fc777ad2995f19668350",
-    "license": "apache-2.0",
+    "repo": "ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+    "revision": "8cd082170ed313484be1cf44f256a5caa2cfdad3",
+    "license": "other",
     "files": [
       {
-        "file": "Qwen3-Coder-30B-A3B-Instruct-Q6_K.gguf",
-        "bytes": 25092535456,
-        "sha256": "100b5121d09553fb1af3b873b21fb3ec3da5c306fc5cb09bd338c48e21b10875"
+        "file": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-Q8_0.gguf",
+        "bytes": 33585495616,
+        "sha256": "d4cc4c9fffaa356db8b49cfaba9233609cfb29b4dd89d827665210dc1cc8dbbb"
       }
     ]
   },
   "medium": {
-    "repo": "unsloth/Qwen3-Coder-Next-GGUF",
-    "revision": "ce09c67b53bc8739eef83fe67b2f5d293c270632",
+    "repo": "unsloth/gemma-4-26B-A4B-it-GGUF",
+    "revision": "c099eb48e663fd284577b04978a94ffccb261841",
     "license": "apache-2.0",
     "files": [
       {
-        "file": "Q6_K/Qwen3-Coder-Next-Q6_K-00001-of-00003.gguf",
-        "bytes": 5936320,
-        "sha256": "b29fc953bb49f2f7857a7112dbe32dc17b7842c9afeaa4895a431437c692df50"
-      },
-      {
-        "file": "Q6_K/Qwen3-Coder-Next-Q6_K-00002-of-00003.gguf",
-        "bytes": 49795838592,
-        "sha256": "f28f4a3579b187ff5b2b67ae12cd7e060733775a6ccc9f2f8b59c3c17645b84b"
-      },
-      {
-        "file": "Q6_K/Qwen3-Coder-Next-Q6_K-00003-of-00003.gguf",
-        "bytes": 15812217376,
-        "sha256": "4b08b8b13480d9ae269e77c09931dfbe45b8d002836da979d6b9078d0786ba61"
+        "file": "gemma-4-26B-A4B-it-UD-Q6_K.gguf",
+        "bytes": 23172478688,
+        "sha256": "76bf3eee49cca5b076b34a4b575ecd505dabc470512b46f1207b4f9da08385f0"
       }
     ]
   },
@@ -80,7 +70,26 @@
     ]
   },
   "long": {
-    "same_file_as": "medium"
+    "repo": "unsloth/Qwen3-Coder-Next-GGUF",
+    "revision": "ce09c67b53bc8739eef83fe67b2f5d293c270632",
+    "license": "apache-2.0",
+    "files": [
+      {
+        "file": "Q6_K/Qwen3-Coder-Next-Q6_K-00001-of-00003.gguf",
+        "bytes": 5936320,
+        "sha256": "b29fc953bb49f2f7857a7112dbe32dc17b7842c9afeaa4895a431437c692df50"
+      },
+      {
+        "file": "Q6_K/Qwen3-Coder-Next-Q6_K-00002-of-00003.gguf",
+        "bytes": 49795838592,
+        "sha256": "f28f4a3579b187ff5b2b67ae12cd7e060733775a6ccc9f2f8b59c3c17645b84b"
+      },
+      {
+        "file": "Q6_K/Qwen3-Coder-Next-Q6_K-00003-of-00003.gguf",
+        "bytes": 15812217376,
+        "sha256": "4b08b8b13480d9ae269e77c09931dfbe45b8d002836da979d6b9078d0786ba61"
+      }
+    ]
   },
   "max": {
     "repo": "unsloth/Qwen3-235B-A22B-Thinking-2507-GGUF",

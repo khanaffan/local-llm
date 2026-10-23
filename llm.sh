@@ -4,6 +4,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
+. "$ROOT/profile.sh"
 HOST=127.0.0.1
 PORT=8080
 PIDFILE="$ROOT/run/server.pid"
@@ -30,12 +31,12 @@ health() {
 
 load_profile() {
   local p="$1"
-  [[ "$p" =~ ^(fast|lite|medium|coder|smart|long|max)$ ]] || die "unknown profile '$p' (fast|lite|medium|coder|smart|long|max)"
+  resolve_profile "$p" || return 1
   # shellcheck disable=SC1090
-  . "$ROOT/profiles/$p.env"
+  . "$PROFILE_DIR/$p.env"
   # optional per-machine overrides (git-ignored), e.g. CTX=65536 on smaller Macs
   # shellcheck disable=SC1090
-  [ ! -f "$ROOT/profiles/$p.local.env" ] || . "$ROOT/profiles/$p.local.env"
+  [ ! -f "$PROFILE_DIR/$p.local.env" ] || . "$PROFILE_DIR/$p.local.env"
   [ -f "$ROOT/$MODEL_FILE" ] || die "model file missing: $MODEL_FILE (run: ./download.sh $p)"
 }
 

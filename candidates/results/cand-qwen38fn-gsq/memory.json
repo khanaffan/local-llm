@@ -1,0 +1,15 @@
+{
+  "baseline": {
+    "swap_mib": 26.94,
+    "pressure": 1,
+    "rss_mib": 0
+  },
+  "peak": {
+    "swap_mib": 26.94,
+    "pressure": 1,
+    "rss_mib": 72720.09375
+  },
+  "swap_growth_mib": 0,
+  "qualified": true,
+  "errors": []
+}

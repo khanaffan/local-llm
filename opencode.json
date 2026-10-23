@@ -24,16 +24,18 @@
           }
         },
         "local-lite": {
-          "name": "Qwen3-Coder-30B-A3B (lite)",
+          "name": "Nemotron-3.5-Lightning-30B-A3B (lite)",
           "tool_call": true,
+          "reasoning": true,
           "limit": {
             "context": 131072,
             "output": 8192
           }
         },
         "local-medium": {
-          "name": "Qwen3-Coder-Next 80B-A3B (medium)",
+          "name": "Gemma-4-26B-A4B (medium)",
           "tool_call": true,
+          "reasoning": true,
           "limit": {
             "context": 131072,
             "output": 8192
